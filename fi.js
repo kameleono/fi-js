@@ -169,8 +169,8 @@ var Loc = function(n, i, s, d) {
     this.objs = [];
     this.personas = [];
 
-    this.compas = [ "norte", "sur", "este", "oeste", "arriba", "abajo" ];
-    this.brevCompas = [ "n", "s", "e", "o", "ar", "ab" ];
+    this.compas = compas;
+    this.brevCompas = brevCompas;
     this.exits = [ null, null, null, null, null, null ];
     this.salidas = this.exits;
 
@@ -608,11 +608,11 @@ var ctrl = ( function() {
 		var toret = null;
 		var personas = loc.personas;
 
-		w = parser.canonical( w );
+		w = lang.canonical( w );
 
 		for(var i = 0; i < loc.personas.length; ++i) {
 			var persona = loc.personas[ i ];
-			var idsPersona = persona.syn.concat( parser.canonical( persona.id ) );
+			var idsPersona = persona.syn.concat( lang.canonical( persona.id ) );
 
 			if ( idsPersona.indexOf( w ) > -1 ) {
 				toret = persona;
@@ -626,10 +626,10 @@ var ctrl = ( function() {
     function lookUpObj(container, w)
     {
         var toret = null;
-        var id = parser.canonical( container.id );
+        var id = lang.canonical( container.id );
         var containerIds = container.syn.concat( id );
 
-        w = parser.canonical( w );
+        w = lang.canonical( w );
 
         // Is this loc?
         if ( containerIds.indexOf( w ) > -1 ) {
@@ -644,7 +644,7 @@ var ctrl = ( function() {
 
             for(var i = 0; i < targets.length; ++i) {
                 var obj = targets[ i ];
-                var idsObj = obj.syn.concat( parser.canonical( obj.id ) );
+                var idsObj = obj.syn.concat( lang.canonical( obj.id ) );
 
                 if ( idsObj.indexOf( w ) > -1 ) {
                     toret = obj;
@@ -943,7 +943,7 @@ var ctrl = ( function() {
 
             if ( loc.personas.length > 1 ) {
 					var personasDesc = ctrl.listPersonas( loc );
-                    pDesc.innerHTML += "<p>Aqu&iacute; puedes ver a: "
+                    pDesc.innerHTML += "<p>Ĉi tie vi povas vidi: "
 							+ ctrl.cnvtTextLinksToHtml( personasDesc );
             }
 
@@ -1435,7 +1435,7 @@ var ctrl = ( function() {
             isInventory = true;
             toret += "Llevas contigo: ";
         } else {
-            toret += "<br>Tambi&eacute;n puedes ver: ";
+            toret += "<br>Vi ankaŭ povas vidi: ";
         }
 
         // Discard scenery objects
@@ -1598,39 +1598,6 @@ var parser = ( function() {
         },
     }
 
-    var IgnoredWords = ( function() {
-        var Particles = [
-            "el", "la", "las", "los", "un", "una", "uno", "y", "o",
-            "pero", "dentro", "cuidadosamente", "lentamente", "rapidamente"
-        ];
-
-        var Prepositions = [
-            "a", "al", "ante", "bajo", "cabe", "con", "contra", "de", "del",
-            "desde", "en", "entre", "hacia", "hasta", "para", "por",
-            "segun", "sin", "so", "sobre", "tras"
-        ];
-
-        function isIgnorable(w)
-        {
-            return ( Particles.indexOf( canonical( w ) ) >= 0 );
-        }
-
-        function isPreposition(w)
-        {
-            return ( Prepositions.indexOf( canonical( w ) ) >= 0 );
-        }
-
-        return {
-            "Particles": Particles,
-            "Prepositions": Prepositions,
-            "Palabras": Particles,
-            "Preposiciones": Prepositions,
-            "isIgnorable": isIgnorable,
-            "esIgnorable": isIgnorable,
-            "isPreposition": isPreposition,
-            "esPreposicion": isPreposition,
-        };
-    } )();
 
     function doParse()
     {
@@ -1653,31 +1620,22 @@ var parser = ( function() {
         return false;
     }
 
-    function canonical( w )
-    {
-        if ( w == null ) {
-            w = "";
-        }
-
-        return w.split( ' ' )[ 0 ].trim().toLowerCase();
-    }
-
     function stripIgnoredWords(ws)
     {
         var toret = [];
 
         if ( ws.length > 1 ) {
             for(var i = 0; i < ws.length; ++i) {
-                ws[ i ] = canonical( ws[ i ] );
+                ws[ i ] = lang.canonical( ws[ i ] );
 
                 if ( ws[ i ].length > 0
-                  && !IgnoredWords.isIgnorable( ws[ i ] ) ) {
+                  && !lang.IgnoredWords.isIgnorable( ws[ i ] ) ) {
                     toret.push( ws[ i ] );
                 }
             }
         } else {
             if ( ws.length > 0 ) {
-                toret.push( canonical( ws[ 0 ] ) );
+                toret.push( lang.canonical( ws[ 0 ] ) );
             }
         }
 
@@ -1688,47 +1646,7 @@ var parser = ( function() {
     {
         sentence.init();
 
-        for(var i = 0; i < ws.length; ++i )
-        {
-            var w = canonical( ws[ i ] );
-
-            // Set verb
-            if ( i == 0 ) {
-                if ( !IgnoredWords.isPreposition( w ) ) {
-                    sentence.verb = w;
-                } else {
-                    break;
-                }
-            }
-            else
-            // Set noun1
-            if ( i == 1 ) {
-                if ( !IgnoredWords.isPreposition( w ) ) {
-                    sentence.term1 = w;
-                } else {
-                    sentence.prep = w;
-                }
-            }
-            // Set noun2
-            else
-            if ( i == 2 ) {
-                if ( IgnoredWords.isPreposition( w ) ) {
-                    sentence.prep = w;
-                } else {
-                    if ( sentence.term1 != null ) {
-                        sentence.term2 = w;
-                        break;
-                    } else {
-                        sentence.term1 = w;
-                    }
-                }
-            } else {
-				if ( !IgnoredWords.isPreposition( w ) ) {
-					sentence.term2 = w;
-					break;
-				}
-            }
-        }
+        lang.ws_to_Particles(ws, sentence);
 
         return;
     }
@@ -1854,10 +1772,6 @@ var parser = ( function() {
         "parse": parse,
         "sentence": sentence,
         "sentencia": sentence,
-        "IgnoredWords": IgnoredWords,
-        "PalabrasIgnoradas": IgnoredWords,
-        "canonical": canonical,
-        "canonica": canonical,
         "identifyObjects": identifyObjects,
         "idObjs": identifyObjects,
     };

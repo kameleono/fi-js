@@ -11,17 +11,17 @@
 */
 
 ctrl.ponTitulo( "Vampiro" );
-ctrl.ponIntro( "<p><h2>Memorias de reXXe</h2><br>\
+ctrl.ponIntro( "<p><h2>Memoraĵoj de reXXe</h2><br>\
                 <b>\
-                \"Vampiro\" es una obra original creada por Jaume \
+                \"Vampiro\" estas originala verkaĵo kreita de Jaume \
                 Alcazo Castellarnau en 1998.\
                 </b><br>\
-                <br><i>El <a href=\"http://wiki.caad.es/Proyecto_Vampiro\" \
-                target=\"_blank\">proyecto vampiro </a> \
-                consiste en recrear una aventura \
-                muy sencilla en un nuevo parser, de manera que para el \
-                autor experimentado, estas salgan a la luz enseguida. \
-                En este caso, el objetivo es demostrar las posibilidades \
+                <br><i>La <a href=\"http://wiki.caad.es/Proyecto_Vampiro\" \
+                target=\"_blank\">projekto vampiro </a> \
+                konkistas en rekreo de tre simpla aventuro \
+                per nova sintaksa analizilo, tial por \
+                sperta aŭtoro, ĝi ne prezentas grandan defion. \
+                En tiu ĉi okazo, la celo estas elmontri la eblecojn \
                 de <a target=\"_blank\" href=\"http://caad.es/baltasarq/prys/fi.js/\">fi.js</a>\
                 </i></p>" );
 ctrl.ponImg( "res/portada_vampiro.jpg" );
@@ -41,14 +41,14 @@ var locBiblioteca = ctrl.lugares.creaLoc(
 locBiblioteca.pic = "res/biblioteca.jpg";
 
 var locCocina = ctrl.lugares.creaLoc(
-	"Cocina",
-	[ "cocina", "habitacion", "estancia" ],
-	"Estás en la cocina del castillo. Esto está lleno de \
-        ${cacerolas, ex cacerolas} y de ${cacharros, ex cacharros} \
-        para cocinar. Hay un ${horno, ex horno}, un \
-        ${fregadero, ex fregadero} y un ${armario, ex armario} pequeño.\
-        <br>Salidas visibles: \
-        ${este, este}."
+	"Kuirejo",
+	[ "kuirejo", "ĉambro" ],
+	"Vi estas en la kuirejo de la kastelo. Ĝi estas plena je \
+        ${kaseroloj, ekz la kaserolojn} kaj ${aĵoj, ekz la aĵojn} \
+        por kuiri. Estas ${forno, ekz la fornon}, \
+        ${lavujo, ekz la lavujon} kaj malgranda ${ŝranko, ekz la ŝrankon}.\
+        <br>Videblaj elirejoj: \
+        ${oriento, oriento}."
 );
 locCocina.pic = "res/cocina.jpg";
 
@@ -97,13 +97,13 @@ var locEscalerasSuperiores = ctrl.lugares.creaLoc(
 locEscalerasSuperiores.pic = "res/escaleras_superiores.jpg";
 
 var locPasillo = ctrl.lugares.creaLoc(
-	"Pasillo",
-	[ "pasillo" ],
-	"Te encuentras en medio del pasillo principal de este piso. \
-         Al ${oeste, oeste} está la ${cocina, oeste} y al ${este, este} \
-         la ${biblioteca, este}. El pasillo sigue hacia el \
-         ${norte, norte}.<br>Salidas visibles: \
-         ${norte, norte}, ${sur, sur}, ${este, este}, ${oeste, oeste}."
+	"Koridoro",
+	[ "koridoro" ],
+	"Vi troviĝas meze de la ĉefa koridoro de tiu ĉi etaĝo. \
+         En la ${okcidento, okcidento} estas la ${kuirejo, okcidento} kaj en la ${oriento, oriento} \
+         la ${biblioteko, oriento}. La koridoro plu iras ĝis la \
+         ${nordo, nordo}.<br>Videblaj elirejoj: \
+         ${nordo, nordo}, ${sudo, sudo}, ${oriento, oriento}, ${akcidento, okcidento}."
 );
 locPasillo.pic = "res/pasillo.jpg";
 
@@ -136,13 +136,13 @@ var locSotano = ctrl.lugares.creaLoc(
 locSotano.pic = "res/sotano.jpg";
 
 var locVestibulo = ctrl.lugares.creaLoc(
-	"Vestíbulo",
-	[ "vestibulo", "habitacion", "estancia" ],
-	"Estás en el vestíbulo del castillo. El ambiente es muy \
-        húmedo y frío. Estás en un pasillo que se extiende hacia el \
-        ${norte, norte}. Al ${sur, sur} queda la \
-        ${puerta de entrada, ex puerta} al castillo.<br>Salidas \
-        visibles: ${norte, norte}.\n"
+	"Vestiblo",
+	[ "antaŭĉambro" ],
+	"Vi estas en la vestiblo de la kastelo. Estas tre humide \
+        kaj malvarme. Vi estas en koridoro kiu etendiĝas ĝis la \
+        ${nordo, nordo}. En la ${sudo, sudo} staras la \
+        ${enirpordo, ekzameni la pordon} al la kastelo.<br>Videblaj \
+        elirejoj: ${nordo, nordo}.\n"
 );
 locVestibulo.pic = "res/vestibulo.jpg";
 
@@ -161,10 +161,10 @@ locVestibulo.preGo = function() {
 }
 
 var objPuertaEntrada = ctrl.creaObj(
-	"puerta",
-	[ "entrada" ],
-	"No es el momento de irse, ¡acabas de llegar! Debes cumplir \
-         tu misión.",
+	"pordo",
+	[ "enirejo" ],
+	"Ĉu vere?, vi ĵus alvenis! vi devas plenumi \
+         vian mision.",
 	locVestibulo,
 	Ent.Escenario
 );
@@ -177,31 +177,31 @@ objPuertaEntrada.preOpen = function() {
 // *** Compas --
 
 // -- locBiblioteca
-locBiblioteca.ponSalidaBi( "oeste", locPasillo );
+locBiblioteca.ponSalidaBi( "okcidento", locPasillo );
 
 // -- locElFinal
-locElFinal.ponSalidaBi( "este", locEscalerasSuperiores );
+locElFinal.ponSalidaBi( "oriento", locEscalerasSuperiores );
 
 // -- locEscaleras
-locEscaleras.ponSalidaBi( "este", locSalaDeEstar );
-locEscaleras.ponSalidaBi( "oeste", locDormitorio );
-locEscaleras.ponSalidaBi( "arriba", locEscalerasSuperiores );
-locEscaleras.ponSalidaBi( "abajo", locSotano );
+locEscaleras.ponSalidaBi( "oriento", locSalaDeEstar );
+locEscaleras.ponSalidaBi( "oriento", locDormitorio );
+locEscaleras.ponSalidaBi( "supro", locEscalerasSuperiores );
+locEscaleras.ponSalidaBi( "malsupro", locSotano );
 
 // -- locEscalerasSuperiores
-locEscalerasSuperiores.ponSalidaBi( "oeste", locElFinal );
+locEscalerasSuperiores.ponSalidaBi( "okcidento", locElFinal );
 
 // -- locPasillo
-locPasillo.ponSalidaBi( "norte", locEscaleras );
-locPasillo.ponSalidaBi( "sur", locVestibulo );
-locPasillo.ponSalidaBi( "este", locBiblioteca );
-locPasillo.ponSalidaBi( "oeste", locCocina );
+locPasillo.ponSalidaBi( "nordo", locEscaleras );
+locPasillo.ponSalidaBi( "sudo", locVestibulo );
+locPasillo.ponSalidaBi( "oriento", locBiblioteca );
+locPasillo.ponSalidaBi( "okcidento", locCocina );
 
 // -- locSalaDeEstar
-locSalaDeEstar.ponSalidaBi( "oeste", locEscaleras );
+locSalaDeEstar.ponSalidaBi( "okcidento", locEscaleras );
 
 // -- locVestibulo
-locVestibulo.ponSalidaBi( "norte", locPasillo );
+locVestibulo.ponSalidaBi( "nordo", locPasillo );
 
 
 // *** Objs --
@@ -224,10 +224,10 @@ var objAltar = ctrl.creaObj(
 );
 
 var objArmario = ctrl.creaObj(
-	"armario",
-	[ "armario", "aparador" ],
-	"Es un armario de los que se usa para la vajilla. \
-         La puerta tiene una pequeña cerradura. ",
+	"ŝranko",
+	[ "ŝranko" ],
+	"Ĝi estas unu el tiaj ŝrankoj uzataj por teleroj. \
+         La pordo havas malgrandan seruron. ",
 	locCocina,
 	Ent.Escenario
 );
@@ -413,9 +413,9 @@ objBarril.preOpen = function() {
 }
 
 var objCacerolas = ctrl.creaObj(
-	"cacerolas",
-	[ "cacerolas", "cacerola", "cacharro", "cacharros" ],
-	"Simples cacerolas y cacharros de cocina.",
+	"kaseroloj",
+	[ "kaseroloj", "kaserolo", "aĵo", "aĵoj" ],
+	"Simplaj kaseroloj kaj kuirejaj aĵoj.",
 	locCocina,
 	Ent.Escenario
 );
@@ -456,17 +456,17 @@ var objCuchillo = ctrl.creaObj(
 );
 
 var objFregadero = ctrl.creaObj(
-	"fregadero",
-	[ "fregadero" ],
-	"Es un fregadero de piedra. El fregadero está vacío.",
+	"lavujo",
+	[ "lavujo" ],
+	"Ĝi estas ŝtona lavujo. La lavujo estas malplena.",
 	locCocina,
 	Ent.Escenario
 );
 
 var objHorno = ctrl.creaObj(
-	"horno",
-	[ "horno" ],
-	"Un simple horno, no tiene ninguna importancia.",
+	"forno",
+	[ "forno" ],
+	"Simpla forno, ĝi estas tute ne atentinda.",
 	locCocina,
 	Ent.Escenario
 );
@@ -572,9 +572,9 @@ var objSilla = ctrl.creaObj(
 );
 
 var objTrajeBarato = ctrl.creaObj(
-	"traje barato",
-	[ "traje" ],
-	"Es un traje barato comprado en las rebajas.",
+	"malmultekosta virvesto",
+	[ "virvesto" ],
+	"Ĝi estas malmultekosta virvesto aĉetita el inter la marĉandaĵoj.",
 	locPasillo,
 	Ent.Portable
 );
