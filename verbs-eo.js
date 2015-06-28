@@ -771,13 +771,12 @@ dropAction.doIt = function(s) {
 // ------------------------------------------------------------ Take
 var takeAction = actions.crea( "take",
     [
-        "coge", "coger", "cojo",
-        "toma", "tomar", "tomo",
+        "preni",
     ]
 );
 
 takeAction.exe = function(s, obj, persona) {
-    var toret = "No hay de eso por aqu&iacute;.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( arguments.length < 3
       || persona == null )
@@ -801,15 +800,15 @@ takeAction.exe = function(s, obj, persona) {
 						obj.setWorn( false );
 					}
 
-					toret = "Cogido.";
+					toret = "Prenite.";
 				} else {
-					toret = "Ya lo tienes.";
+					toret = "Vi jam havas ĝin.";
 				}
             } else {
-                toret = "No servir&iacute;a de nada.";
+                toret = "Ĝi ne estas utila al vi.";
             }
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         }
     }
 
@@ -841,7 +840,7 @@ takeAction.doIt = function(s) {
         objDest.postTake();
       }
     } else {
-        toret = "No hay de eso por aqu&iacute;.";
+        toret = "Tio ne troviĝas ĉirkaŭe";
     }
 
     return toret;
@@ -849,8 +848,7 @@ takeAction.doIt = function(s) {
 
 // ---------------------------------------------------------------- Open
 var openAction = actions.crea( "open",
-    [ "abre", "abrir", "abro",
-      "desbloquea", "desbloquear", "desbloqueo" ]
+    [ "malfermi", "malbloki" ]
 );
 
 openAction.exe = function(s, obj) {
@@ -864,16 +862,16 @@ openAction.exe = function(s, obj) {
 
     if ( obj != null ) {
         if ( obj.isReachable() ) {
-            toret = "No hay necesidad.";
+            toret = "Ne estas necese.";
 
             if ( obj.isCloseable()
               && !obj.isOpen() )
             {
                 obj.setOpen();
-                toret = "Hecho.";
+                toret = "Farite.";
             }
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         }
     } else {
         toret = "No hay de eso por aqu&iacute;.";
@@ -897,7 +895,7 @@ openAction.doIt = function(s) {
         objDest.postOpen();
       }
     } else {
-        toret = "No hay de eso por aqu&iacute;.";
+        toret = "Tio ne troviĝas ĉirkaŭe;.";
     }
 
     return toret;

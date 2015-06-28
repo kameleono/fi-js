@@ -81,10 +81,12 @@ var lang = ( function() {
 
             // Set noun2
             if(nerekta_objekto.test(w)){
-                if ( sentence.term1 != null ) {
-                    sentence.term2 = w;
-                } else {
-                    sentence.term1 = w;
+                if ( sentence.prep != null ) {
+                    if ( sentence.term1 != null ) {
+                        sentence.term2 = w;
+                    } else {
+                        sentence.term1 = w;
+                    }
                 }
             }
 

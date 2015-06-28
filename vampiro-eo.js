@@ -53,12 +53,12 @@ var locCocina = ctrl.lugares.creaLoc(
 locCocina.pic = "res/cocina.jpg";
 
 var locDormitorio = ctrl.lugares.creaLoc(
-	"Dormitorio",
-	[ "dormitorio", "habitacion", "estancia" ],
-	"Estás en un dormitorio no muy grande ni tampoco muy pequeño. \
-        Es bastante austero. Sólo hay una ${cama, ex cama} \
-        y un ${armario, ex armario}.\
-        <br>Salidas visibles: ${este, este}."
+	"Dormoĉambro",
+	[ "dormocambro" ],
+	"Vi estas en dormoĉambro nek granda nek malgranda. \
+        Ĝi estas tre aŭstera. Nur estas ${lito, ekz la liton} \
+        kaj ${ŝranko, ekz la ŝrankon}.\
+        <br>Videblaj elirejoj: ${oriento, oriento}."
 );
 locDormitorio.pic = "res/dormitorio.jpg";
 
@@ -74,14 +74,14 @@ var locElFinal = ctrl.lugares.creaLoc(
 locElFinal.pic = "res/final.jpg";
 
 var locEscaleras = ctrl.lugares.creaLoc(
-	"Escaleras",
-	[ "escaleras" ],
-	"Te hallas en el final del pasillo. Delante de tí ves unas \
-        escaleras que ${suben, sube} y otras que ${bajan, baja}. \
-        Al ${oeste, oeste} está el ${dormitorio, oeste} y al ${este, este} \
-        la ${sala de estar, este}.<br>Salidas visibles: \
-        ${sur, sur}, ${este, este}, ${oeste, oeste}, \
-        ${arriba, arriba}, ${abajo, abajo}."
+	"Ŝtuparoj",
+	[ "stuparoj" ],
+	"Vi troviĝas ĉe la fino de la koridoro. Antaŭ vi, vi vidas \
+        unu ŝtuparon kiu ${supreniras, supreniri} kaj aliaj kiu ${malsupreniras, malsupreniri}. \
+        ${Okcidente, okcidento} estas la ${dormoĉambro, okcidento} kaj ${oriente, oriente} \
+        la ${vivĉambro, oriento}.<br>Videblaj elirejoj: \
+        ${sudo, sudo}, ${oriento, oriento}, ${okcidento, okcidento}, \
+        ${supro, supro}, ${malsupro, malsupro}."
 );
 locEscaleras.pic = "res/escaleras.jpg";
 
@@ -184,7 +184,7 @@ locElFinal.ponSalidaBi( "oriento", locEscalerasSuperiores );
 
 // -- locEscaleras
 locEscaleras.ponSalidaBi( "oriento", locSalaDeEstar );
-locEscaleras.ponSalidaBi( "oriento", locDormitorio );
+locEscaleras.ponSalidaBi( "okcidento", locDormitorio );
 locEscaleras.ponSalidaBi( "supro", locEscalerasSuperiores );
 locEscaleras.ponSalidaBi( "malsupro", locSotano );
 
@@ -247,7 +247,7 @@ objArmario.preExamine = function() {
 }
 
 objArmario.preOpen = function() {
-        var toret = "No puedes abrirlo con eso.";
+        var toret = "Vi ne povas malfermi ĝin per tio.";
         var s = parser.sentencia;
 
         if ( s.obj2 === null ) {
@@ -255,21 +255,21 @@ objArmario.preOpen = function() {
         }
 
         if ( !ctrl.estaPresente( s.obj2 ) ) {
-                toret = "No puedes abrirlo así.";
+                toret = "Vi ne povas tiel malfermi ĝin.";
         }
         else
         if ( s.obj2 === objLlavecita ) {
-                toret = "Ya estaba abierto.";
+                toret = "Ĝi jam estis malfermita.";
 
                 if ( !objArmario.estaAbierto() ) {
-                        toret = "Lo has abierto con la llavecita.";
+                        toret = "Vi malfermis ĝin per la ŝlosileto.";
                         objArmario.ponAbierto();
 
                         if ( objRistraDeAjos.owner === ctrl.lugares.limbo )
                         {
                                 objRistraDeAjos.moveTo( locCocina );
-                                toret += " Dentro hay una \
-                                           ${ristra de ajos, coge ristra}.";
+                                toret += " Ene estas \
+                                           ${ajlŝnuro, preni la ajlŝnuron}.";
                         }
                 }
         }
@@ -421,9 +421,9 @@ var objCacerolas = ctrl.creaObj(
 );
 
 var objCama = ctrl.creaObj(
-	"cama",
-	[ "cama" ],
-	"Está cubierta de ${sábanas, ex sabanas}.",
+	"lito",
+	[ "lito" ],
+	"Ĝi estas kovrita per ${litotukoj, ekz la litotukojn}.",
 	locDormitorio,
 	Ent.Escenario
 );
@@ -482,9 +482,9 @@ var objLibros = ctrl.creaObj(
 );
 
 var objLlavecita = ctrl.creaObj(
-	"llavecita",
-	[ "llavecita", "llave" ],
-	"Esta pequeña llavecita tiene la pinta de abrir un armario o algo así.",
+	"ŝlosileto",
+	[ "slosileto", "slosilo" ],
+	"Tiu ĉi malgranda ŝlosilo ŝajnas oportuna por malfermi ŝrankon aŭ ion tian.",
 	ctrl.lugares.limbo,
 	Ent.Portable
 );
@@ -534,9 +534,9 @@ objRestos.preExamine = function() {
 }
 
 var objRistraDeAjos = ctrl.creaObj(
-	"ristra de ajos",
-	[ "ristra", "ajos", "ajo" ],
-	"Es una ristra entera de ajos que expelen un olor un tanto asqueroso. Es uno de los cuatro elementos que me servirán para derrotar al vampiro.",
+	"ajlŝnuro",
+	[ "snuro", "ajloj", "ajlo", "ajlsnuro" ],
+	"Ĝi estas plena ajlŝnuro kies odoro estas iom naŭza. Ĝi estas unu el la kvar aĵoj per kiuj vi venkos la vampiron.",
 	ctrl.lugares.limbo,
 	Ent.Portable
 );
@@ -544,9 +544,9 @@ var objRistraDeAjos = ctrl.creaObj(
 objRistraDeAjos.ponPrenda();
 
 var objSabanas = ctrl.creaObj(
-	"sabanas",
-	[ "sabanas" ],
-	"Desordenadas y sucias.",
+	"litotukoj",
+	[ "litotukoj" ],
+	"Ili estas malordaj kaj malpuraj.",
 	locDormitorio,
 	Ent.Escenario
 );
@@ -556,8 +556,8 @@ objSabanas.preExamine = function() {
 
         if ( objLlavecita.owner = ctrl.lugares.limbo ) {
                 objLlavecita.moveTo( locDormitorio );
-                toret += " Entre ellas encuentras una pequeña \
-                ${llavecita, coge llavecita}.";
+                toret += " Inter ili vi malkovras \
+                ${ŝlosileton, preni la ŝlosileton}.";
         }
 
         return toret;
