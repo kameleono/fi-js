@@ -225,7 +225,7 @@ var objAltar = ctrl.creaObj(
 
 var objArmario = ctrl.creaObj(
 	"ŝranko",
-	[ "ŝranko" ],
+	[ "sranko" ],
 	"Ĝi estas unu el tiaj ŝrankoj uzataj por teleroj. \
          La pordo havas malgrandan seruron. ",
 	locCocina,
@@ -238,9 +238,9 @@ objArmario.preExamine = function() {
         var toret = objArmario.desc;
 
         if ( objArmario.estaAbierto() ) {
-                toret += "Está abierto.";
+                toret += "Ĝi estas malfermita.";
         } else {
-                toret += "Está cerrado.";
+                toret += "Ĝi estas fermita.";
         }
 
         return toret;

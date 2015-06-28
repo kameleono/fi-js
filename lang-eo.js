@@ -19,14 +19,14 @@ var lang = ( function() {
 
     var IgnoredWords = ( function() {
         var Particles = [
-            "el", "la", "las", "los", "un", "una", "uno", "y", "o",
-            "pero", "dentro", "cuidadosamente", "lentamente", "rapidamente"
+            "la", "kaj", "au", "mi",
+            "sed", "ene", "zorge", "malrapide", "rapide"
         ];
 
         var Prepositions = [
-            "a", "al", "ante", "bajo", "cabe", "con", "contra", "de", "del",
-            "desde", "en", "entre", "hacia", "hasta", "para", "por",
-            "segun", "sin", "so", "sobre", "tras"
+            "al", "antaŭ", "aub", "kun", "kontraŭ", "de",
+            "ekde", "en", "inter", "gis", "por", "trans",
+            "laŭ", "sen", "pro", "pri", "tra", "per"
         ];
 
         function isIgnorable(w)
@@ -58,46 +58,41 @@ var lang = ( function() {
         {
             var w = canonical( ws[ i ] );
 
+            var rekta_objekto = /^[a-z].+(n)$/
+            var verbo_i = /^[a-z].+(i)$/
+            var verbo_as = /^[a-z].+(as)$/
+            var nerekta_objekto = /^[a-z].+(o)$/
+            
             // Set verb
-            if ( i == 0 ) {
-                if ( !IgnoredWords.isPreposition( w ) ) {
-                    sentence.verb = w;
-                } else {
-                    break;
-                }
+            if(verbo_i.test(w)){
+                sentence.verb = w;
             }
-            else
+
+            if(verbo_as.test(w)){
+                var radiko = w.substring(0, (w.length - 2));
+                sentence.verb = radiko + "i";
+            }
+
             // Set noun1
-            if ( i == 1 ) {
-                if ( !IgnoredWords.isPreposition( w ) ) {
-                    var rekta_objekto = /^[a-z].+(n)$/
-                    if(rekta_objekto.test(w)){
-                        ovorto = w.substring(0, (w.length - 1));
-                        sentence.term1 = ovorto;
-                    }
-                } else {
-                    sentence.prep = w;
-                }
+            if(rekta_objekto.test(w)){
+                var ovorto = w.substring(0, (w.length - 1));
+                sentence.term1 = ovorto;
             }
+
             // Set noun2
-            else
-            if ( i == 2 ) {
-                if ( IgnoredWords.isPreposition( w ) ) {
-                    sentence.prep = w;
+            if(nerekta_objekto.test(w)){
+                if ( sentence.term1 != null ) {
+                    sentence.term2 = w;
                 } else {
-                    if ( sentence.term1 != null ) {
-                        sentence.term2 = w;
-                        break;
-                    } else {
-                        sentence.term1 = w;
-                    }
+                    sentence.term1 = w;
                 }
-            } else {
-				if ( !IgnoredWords.isPreposition( w ) ) {
-					sentence.term2 = w;
-					break;
-				}
             }
+
+            // Set preposition
+            if ( IgnoredWords.isPreposition( w ) ) {
+                sentence.prep = w;
+            }
+
         }
 
         return;
