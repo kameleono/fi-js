@@ -414,7 +414,7 @@ objBarril.preOpen = function() {
 
 var objCacerolas = ctrl.creaObj(
 	"kaseroloj",
-	[ "kaseroloj", "kaserolo", "aĵo", "aĵoj" ],
+	[ "kaseroloj", "kaserolo", "ajo", "ajoj" ],
 	"Simplaj kaseroloj kaj kuirejaj aĵoj.",
 	locCocina,
 	Ent.Escenario

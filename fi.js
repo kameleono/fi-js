@@ -1689,10 +1689,10 @@ var parser = ( function() {
     function prepareInput(cmd)
 	{
 
-		var accentedVowels = "áéíóúäëïöüâêîôûàèìòùÁÉÍÓÚÄËÏÖÜÂÊÎÔÛÀÈÌÒÙ";
-		var regularVowels = "aeiou";
-		var specialChars = "ñÑçÇ";
-		var regularChars = "nNcC";
+		var accentedVowels = lang.accentedVowels;
+		var regularVowels = lang.regularVowels;
+		var specialChars = lang.specialChars;
+		var regularChars = lang.regularChars;
 		var aCode = "a".charCodeAt( 0 );
 		var zCode = "z".charCodeAt( 0 );
 		var zeroCode = "0".charCodeAt( 0 );

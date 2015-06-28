@@ -3,6 +3,11 @@ var brevCompas = [ "n", "s", "oro", "oko", "sro", "msro" ];
 
 var lang = ( function() {
 
+	var accentedVowels = "";
+	var regularVowels = "aeiou";
+	var specialChars = "ĉĝĥĵŝŭ";
+	var regularChars = "cghjsu";
+
     function canonical ( w )
     {
         if ( w == null ) {
@@ -104,6 +109,10 @@ var lang = ( function() {
         "canonical": canonical,
         "canonica": canonical,
         "ws_to_Particles": ws_to_Particles,
+	    "accentedVowels": accentedVowels,
+        "regularVowels": regularVowels,
+        "specialChars": specialChars,
+        "regularChars": regularChars,
     };
 
 }() );

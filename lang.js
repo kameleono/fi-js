@@ -3,6 +3,11 @@ var brevCompas = [ "n", "s", "e", "o", "ar", "ab" ];
 
 var lang = ( function() {
 
+	var accentedVowels = "áéíóúäëïöüâêîôûàèìòùÁÉÍÓÚÄËÏÖÜÂÊÎÔÛÀÈÌÒÙ";
+	var regularVowels = "aeiou";
+	var specialChars = "ñÑçÇ";
+	var regularChars = "nNcC";
+
     function canonical ( w )
     {
         if ( w == null ) {
@@ -101,6 +106,10 @@ var lang = ( function() {
         "canonical": canonical,
         "canonica": canonical,
         "ws_to_Particles": ws_to_Particles,
+	    "accentedVowels": accentedVowels,
+        "regularVowels": regularVowels,
+        "specialChars": specialChars,
+        "regularChars": regularChars,
     };
 
 }() );
