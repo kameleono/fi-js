@@ -11,7 +11,7 @@ var examineAction = actions.crea( "examine",
 );
 
 examineAction.exe = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 == null ) {
         toret = "Kion vi volas ekzameni?";
@@ -38,12 +38,12 @@ examineAction.exe = function(s) {
             }
 
             if ( vExaminables.length > 0 ) {
-                toret += "<br>Ves: ";
+                toret += "<br>Vi vidas: ";
                 toret += ctrl.listVector( vExaminables, examineAction.verbs[ 0 ] );
             }
 
             if ( vCogibles.length > 0 ) {
-                toret += "<br>Tiene: ";
+                toret += "<br>Vi havas: ";
                 toret += ctrl.listVector( vCogibles, takeAction.verbs[ 0 ] );
             }
         }
@@ -53,7 +53,7 @@ examineAction.exe = function(s) {
 };
 
 examineAction.doIt = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 == null ) {
         toret = "Kion vi volas ekzameni?";
@@ -76,25 +76,22 @@ examineAction.doIt = function(s) {
 
 // ----------------------------------------------------------- Attack
 var attackAction = actions.crea( "attack",
-        [ "ataca", "atacar", "ataco",
-          "mata", "matar", "mato",
-          "golpea", "golpear", "golpeo",
-          "patea", "patear", "pateo",
-          "rompe", "romper", "rompo" ]
+        [ "ataki", "mortigi", "bati",
+          "frapi", "rompi", "piedbati" ]
 );
 
 attackAction.exe = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 == null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion?";
     }
     else
     if ( s.obj1 != null ) {
         if ( s.obj1.isReachable() ) {
-            toret = "La violencia no es la soluci&oacute;n.";
+            toret = "Perforto ne estas la solvo.";
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝo ne estas atingebla.";
         }
     }
 
@@ -102,10 +99,10 @@ attackAction.exe = function(s) {
 };
 
 attackAction.doIt = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 == null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion?";
     }
     else
     if ( s.obj1 != null ) {
@@ -125,23 +122,21 @@ attackAction.doIt = function(s) {
 
 // ----------------------------------------------------------- Start
 var startAction = actions.crea( "start",
-        [ "enciende", "encender", "enciendo",
-          "arranca", "arrancar", "arranco",
-          "activa", "activar", "activo" ]
+        [ "ŝalti", "startigi" "aktivigi" ]
 );
 
 startAction.exe = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 == null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion?";
     }
     else
     if ( s.obj1 != null ) {
         if ( s.obj1.isReachable() ) {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi estas ne atingebla.";
         }
     }
 
@@ -149,10 +144,10 @@ startAction.exe = function(s) {
 };
 
 startAction.doIt = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe";
 
     if ( s.term1 == null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion?";
     }
     else
     if ( s.obj1 != null ) {
@@ -172,22 +167,22 @@ startAction.doIt = function(s) {
 
 // ----------------------------------------------------------- Shutdown
 var shutdownAction = actions.crea( "shutdown",
-        [ "apaga", "apagar", "apaga",
-          "desactiva", "desactivar", "desactivo" ]
+        [ "malsalti", "malŝalti", "malaktivigi",
+          "malstartigi" ]
 );
 
 shutdownAction.exe = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 == null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion?";
     }
     else
     if ( s.obj1 != null ) {
         if ( s.obj1.isReachable() ) {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         }
     }
 
@@ -198,7 +193,7 @@ shutdownAction.doIt = function(s) {
     var toret = "No veo de eso en derredor.";
 
     if ( s.term1 == null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion?";
     }
     else
     if ( s.obj1 != null ) {
@@ -217,7 +212,7 @@ shutdownAction.doIt = function(s) {
 };
 
 // ------------------------------------------------------------ Look
-var lookAction = actions.crea( "look", [ "m", "mira", "mirar", "miro" ] );
+var lookAction = actions.crea( "look", [ "rigardi", "vidi", "esplori" ] );
 
 lookAction.transInput = function(s) {
     // Look x "mirar x" = examine x
@@ -254,7 +249,7 @@ lookAction.doIt = function(s) {
 };
 
 // ------------------------------------------------------- Inventory
-var inventoryAction = actions.crea( "inv", [ "i", "inv", "inventario" ] );
+var inventoryAction = actions.crea( "inv", [ "i", "inv", "inventaro" ] );
 
 inventoryAction.exe = function(s, persona) {
 	var toret = "";
@@ -369,7 +364,7 @@ goAction.doIt = function(s) {
 
 // --------------------------------------------------------------- Exits
 var exitsAction = actions.crea( "exits",
-    [ "salida", "salidas", "exits" ]
+    [ "elirejoj", "eliro" ]
 );
 
 exitsAction.exe = function(s, loc) {
@@ -386,7 +381,7 @@ exitsAction.exe = function(s, loc) {
         s = null;
     }
 
-    toret = "Puedes ver las siguientes salidas: ";
+    toret = "Vi povas vidi la sekvajn elirejojn: ";
 
     // Collect all exits
     for(var i = 0; i < loc.exits.length; ++i) {
@@ -413,7 +408,7 @@ exitsAction.exe = function(s, loc) {
 
     // Unless there are no exits...
     if ( realExits.length === 0 ) {
-        toret = "No hay salidas visibles.";
+        toret = "Ne estas videblaj elirejoj.";
     }
 
     return toret;
@@ -439,7 +434,7 @@ exitsAction.doIt = function(s) {
 
 // ------------------------------------------------------------ Enter
 var enterAction = actions.crea( "enter",
-    [ "entra", "entrar", "entro", "adentro", "dentro" ]
+    [ "eniri", "enen" ]
 );
 
 enterAction.getDestObj = function(s)
@@ -457,7 +452,7 @@ enterAction.getDestObj = function(s)
 }
 
 enterAction.exe = function(s, obj) {
-    var toret = "No hay de eso por aqu&iacute;.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( arguments.length < 2
       || obj == null )
@@ -467,9 +462,9 @@ enterAction.exe = function(s, obj) {
 
     if ( obj != null ) {
         if ( obj.isReachable() ) {
-            toret = "No es posible.";
+            toret = "Ne eblas.";
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         }
     }
 
@@ -477,7 +472,7 @@ enterAction.exe = function(s, obj) {
 }
 
 enterAction.doIt = function(s) {
-    var toret = "No hay de eso por aqu&iacute;.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
     var objDest = this.getDestObj(s);
 
     if ( objDest != null ) {
@@ -497,7 +492,7 @@ enterAction.doIt = function(s) {
 
 // ------------------------------------------------------------ Exit
 var exitAction = actions.crea( "exit",
-    [ "sal", "salir", "salgo", "fuera", "afuera" ]
+    [ "eliri", "eksteren" ]
 );
 
 exitAction.getDestObj = function(s)
@@ -515,7 +510,7 @@ exitAction.getDestObj = function(s)
 }
 
 exitAction.exe = function(s, obj) {
-    var toret = "No hay de eso por aqu&iacute;.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( arguments.length < 2
       || obj == null )
@@ -525,9 +520,9 @@ exitAction.exe = function(s, obj) {
 
     if ( obj != null ) {
         if ( obj.isReachable() ) {
-            toret = "No es posible.";
+            toret = "Ne eblas.";
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         }
     }
 
@@ -535,7 +530,7 @@ exitAction.exe = function(s, obj) {
 }
 
 exitAction.doIt = function(s) {
-    var toret = "No hay de eso por aqu&iacute;.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
     var objDest = this.getDestObj( s );
 
     if ( objDest != null ) {
@@ -556,8 +551,7 @@ exitAction.doIt = function(s) {
 // ------------------------------------------------------------ Push
 var pushAction = actions.crea( "push",
     [
-        "empuja", "empujar", "empujo",
-        "mueve", "mover", "muevo",
+        "puŝi", "pusi", "movi"
     ]
 );
 
@@ -571,9 +565,9 @@ pushAction.exe = function(s, obj) {
 	}
 
     if ( obj.isReachable() ) {
-        toret = "No se puede.";
+        toret = "Ne eblas.";
     } else {
-        toret = "Demasiado lejos.";
+        toret = "Ĝi ne estas atingebla.";
     }
 
     return toret;
@@ -603,8 +597,7 @@ pushAction.doIt = function(s) {
 // ------------------------------------------------------------ Pull
 var pullAction = actions.crea( "pull",
     [
-        "tira", "tirar", "tiro",
-        "arrastra", "arrastrar", "arrastro",
+        "tiri", "treni",
     ]
 );
 
@@ -631,9 +624,9 @@ pullAction.exe = function(s, obj) {
 	}
 
     if ( obj.isReachable() ) {
-        toret = "No se puede.";
+        toret = "Ne eblas.";
     } else {
-        toret = "Demasiado lejos.";
+        toret = "Ĝi ne estas atingebla.";
     }
 
     return toret;
@@ -654,7 +647,7 @@ pullAction.doIt = function(s) {
           objDest.postPull();
       }
     } else {
-        toret = "No hay de eso por aqu&iacute;.";
+        toret = "Tio ne troviĝas ĉirkaŭe.";
     }
 
     return toret;
@@ -662,8 +655,7 @@ pullAction.doIt = function(s) {
 
 // ------------------------------------------------------------ Drop
 var dropAction = actions.crea( "drop",
-	[ "deja", "dejar", "dejo", "tira", "tirar", "tiro",
-	  "suelta", "soltar", "suelto" ]
+	[ "lasi", "ĵeti", "delasi", "jeti" ]
 );
 
 dropAction.getContainer = function(s) {
@@ -708,15 +700,15 @@ dropAction.exe = function(s, obj, cont, persona) {
                     }
 
                     obj.moveTo( cont );
-                    toret = "Hecho.";
+                    toret = "Farite.";
                 } else {
-                    toret = "No parece apropiado.";
+                    toret = "Tio ne ŝajnas oportuna.";
                 }
             } else {
-                toret = "Demasiado lejos.";
+                toret = "Ĝi ne estas atingebla.";
             }
         } else {
-            toret = "No est&aacute; siendo llevado.";
+            toret = "Vi ne posedas tion.";
         }
     } else {
         toret = "No hay de eso por aqu&iacute;.";
@@ -874,7 +866,7 @@ openAction.exe = function(s, obj) {
             toret = "Ĝi ne estas atingebla.";
         }
     } else {
-        toret = "No hay de eso por aqu&iacute;.";
+        toret = "Tio ne troviĝas ĉirkaŭe.";
     }
 
     return toret;
@@ -903,7 +895,7 @@ openAction.doIt = function(s) {
 
 // --------------------------------------------------------------- Close
 var closeAction = actions.crea( "close",
-    [ "cierra", "cerrar", "cierro" ]
+    [ "fermi" ]
 );
 
 closeAction.exe = function(s, obj) {
@@ -917,19 +909,19 @@ closeAction.exe = function(s, obj) {
 
     if ( obj != null ) {
         if ( obj.isReachable() ) {
-            toret = "No hay necesidad.";
+            toret = "Ne estas necece.";
 
             if ( obj.isCloseable()
               && obj.isOpen() )
             {
                 obj.setOpen( false );
-                toret = "Hecho.";
+                toret = "Farite.";
             }
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         }
     } else {
-        toret = "No hay de eso por aqu&iacute;.";
+        toret = "Tio ne troviĝas ĉirkaŭe.";
     }
 
     return toret;
@@ -950,7 +942,7 @@ closeAction.doIt = function(s) {
         objDest.postClose();
       }
     } else {
-        toret = "No hay de eso por aqu&iacute;.";
+        toret = "Tio ne troviĝas ĉirkaŭe.";
     }
 
     return toret;
@@ -958,7 +950,7 @@ closeAction.doIt = function(s) {
 
 // ------------------------------------------------------------ Swim
 var swimAction = actions.crea( "swim",
-	[ "nada", "nadar", "nado", "bucear", "bucea", "buceo" ]
+	[ "naĝi", "nagi", "nado", "subnaĝi", "subnagi" ]
 );
 
 swimAction.exe = function(s) {
@@ -983,27 +975,27 @@ swimAction.doIt = function(s) {
 };
 
 // ---------------------------------------------------------------- Talk
-var talkAction = actions.crea( "talk", [ "habla", "hablar", "hablo" ] );
+var talkAction = actions.crea( "talk", [ "paroli", "konversacii", "babili" ] );
 
 talkAction.exe = function(s) {
 	var toret = "";
     var persona = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Hablar solo no parece buena idea.";
+		toret = "Paroli sola ne ŝajnas bona ideo.";
 	}
 	else
 	if ( persona == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else
 	if ( !( persona instanceof Persona ) ) {
-		toret = "No se puede hablar con eso.";
+		toret = "Ne eblas paroli kun tio.";
 	} else {
 		if ( persona.isReachable() ) {
-			toret = "No te hace caso.";
+			toret = "Ĝi ne atentas vin.";
 		} else {
-			toret = "Est&aacute; demasiado lejos como para poder hablar.";
+			toret = "Vi estas tro for por povi paroli.";
 		}
 	}
 
@@ -1015,11 +1007,11 @@ talkAction.doIt = function(s) {
     var persona = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Hablar solo no parece buena idea.";
+		toret = "Paroli sola ne ŝajnas bona ideo.";
 	}
 	else
 	if ( persona == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( persona.preTalk ) === "function" ) {
@@ -1038,9 +1030,7 @@ talkAction.doIt = function(s) {
 
 // -------------------------------------------------------------- Search
 var searchAction = actions.crea( "search",
-	[ "registra", "registrar", "registro",
-	  "busca", "buscar", "busco",
-	  "rebusca", "rebuscar", "rebusco" ]
+	[ "serĉi", "serci", "esplori" ]
 );
 
 searchAction.transInput = function(s) {
@@ -1062,17 +1052,17 @@ searchAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacute;as especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
 	else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "No encuentras nada especial.";
+            toret = "Vi trovis nenion specialan.";
         }
     }
 
@@ -1085,11 +1075,11 @@ searchAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacute;as especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
 	else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( objDest.preSearch ) === "function" ) {
@@ -1108,8 +1098,8 @@ searchAction.doIt = function(s)
 
 // ------------------------------------------------------------- Listen
 var listenAction = actions.crea( "listen",
-	[ "escucha", "escuchar", "escucho",
-      "oir", "oye", "oigo" ]
+	[ "aŭskulti", "auskulti", "aŭdi",
+      "audi" ]
 );
 
 listenAction.exe = function(s) {
@@ -1121,13 +1111,13 @@ listenAction.exe = function(s) {
 	}
 
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "No escuchas nada especial.";
+            toret = "Vi aŭdas nenion specialan.";
         }
     }
 
@@ -1144,7 +1134,7 @@ listenAction.doIt = function(s)
 	}
 
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( objDest.preListen ) === "function" ) {
@@ -1163,11 +1153,11 @@ listenAction.doIt = function(s)
 
 // --------------------------------------------------------------- Sing
 var singAction = actions.crea( "sing",
-	[ "canta", "cantar", "canto" ]
+	[ "kanti" ]
 );
 
 singAction.exe = function(s) {
-    return "Mejor no: cantas fatal.";
+    return "Preferinde ne: vi kantas tre malbone.";
 }
 
 singAction.doIt = function(s)
@@ -1190,7 +1180,7 @@ singAction.doIt = function(s)
 
 // --------------------------------------------------------------- Jump
 var jumpAction = actions.crea( "jump",
-	[ "salta", "saltar", "salto" ]
+	[ "salti" ]
 );
 
 jumpAction.transInput = function(s) {
@@ -1207,7 +1197,7 @@ jumpAction.transInput = function(s) {
 }
 
 jumpAction.exe = function(s) {
-    return "Al final, decides no hacerlo.";
+    return "Lastmomente, vi decidas ne fari tion.";
 }
 
 jumpAction.doIt = function(s)
@@ -1230,11 +1220,11 @@ jumpAction.doIt = function(s)
 
 // --------------------------------------------------------------- Shout
 var shoutAction = actions.crea( "shout",
-	[ "grita", "gritar", "grito" ]
+	[ "krii" ]
 );
 
 shoutAction.exe = function(s) {
-    return "Al final, decides no hacerlo.";
+    return "Lastmomente vi decidas ne fari tion.";
 }
 
 shoutAction.doIt = function(s)
@@ -1257,11 +1247,11 @@ shoutAction.doIt = function(s)
 
 // ------------------------------------------------------------- Sleep
 var sleepAction = actions.crea( "sleep",
-	[ "duerme", "duermete", "dormir", "dormirte", "dormirse", "duermo" ]
+	[ "dormi" ]
 );
 
 sleepAction.exe = function(s) {
-    return "Al final, decides no hacerlo.";
+    return "Lastmomente vi decidas ne fari tion.";
 }
 
 sleepAction.doIt = function(s)
@@ -1284,7 +1274,7 @@ sleepAction.doIt = function(s)
 
 // --------------------------------------------------------------- Taste
 var tasteAction = actions.crea( "taste",
-	[ "prueba", "probar", "pruebo", "lame", "lamer", "lamo" ]
+	[ "gustumi", "provi", "leki" ]
 );
 
 tasteAction.exe = function(s) {
@@ -1292,17 +1282,17 @@ tasteAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?.";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         }
     }
 
@@ -1315,11 +1305,11 @@ tasteAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe";
 	}
 	else {
 		if ( typeof( objDest.preTaste ) === "function" ) {
@@ -1338,8 +1328,7 @@ tasteAction.doIt = function(s)
 
 // --------------------------------------------------------------- Touch
 var touchAction = actions.crea( "touch",
-	[ "toca", "tocar", "toco",
-      "acaricia", "acariciar", "acaricio" ]
+	[ "tuŝi", "tusi", "karesi" ]
 );
 
 touchAction.exe = function(s) {
@@ -1347,17 +1336,17 @@ touchAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         }
     }
 
@@ -1370,11 +1359,11 @@ touchAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe";
 	}
 	else {
 		if ( typeof( objDest.preTouch ) === "function" ) {
@@ -1393,7 +1382,7 @@ touchAction.doIt = function(s)
 
 // --------------------------------------------------------------- Smell
 var smellAction = actions.crea( "smell",
-	[ "huele", "huelele", "oler", "olerle", "huelo" ]
+	[ "flari" ]
 );
 
 smellAction.exe = function(s) {
@@ -1401,17 +1390,17 @@ smellAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "No huele a nada especial.";
+            toret = "Nenio vere odorinda.";
         }
     }
 
@@ -1424,11 +1413,11 @@ smellAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( objDest.preSmell ) === "function" ) {
@@ -1447,8 +1436,7 @@ smellAction.doIt = function(s)
 
 // ---------------------------------------------------------------- Have
 var haveAction = actions.crea( "have",
-	[ "come", "comete", "comer", "comerse", "como",
-      "bebe", "bebete", "beber", "beberse", "bebo" ]
+	[ "manĝi", "mangi", "trinki" ]
 );
 
 haveAction.exe = function(s) {
@@ -1456,17 +1444,17 @@ haveAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         }
     }
 
@@ -1479,11 +1467,11 @@ haveAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( objDest.preHave ) === "function" ) {
@@ -1502,8 +1490,7 @@ haveAction.doIt = function(s)
 
 // ------------------------------------------------------------- Descend
 var descendAction = actions.crea( "descend",
-    [ "bajar", "baja", "bajo", "destrepar", "destrepa", "destrepo",
-      "descender", "desciende", "desciendo" ]
+    [ "malsupreniri" ]
 );
 
 descendAction.transInput = function(s) {
@@ -1525,17 +1512,17 @@ descendAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar a d&oacute;nde.";
+		toret = "Kien?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         }
     }
 
@@ -1548,11 +1535,11 @@ descendAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar a d&oacute;nde.";
+		toret = "Kien?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( objDest.preDescend ) === "function" ) {
@@ -1572,9 +1559,7 @@ descendAction.doIt = function(s)
 
 // --------------------------------------------------------------- Climb
 var climbAction = actions.crea( "climb",
-	[ "sube", "subete", "súbete", "subir", "subirse", "subo",
-      "escala", "escalar", "escalo",
-      "trepar", "trepa", "trepo" ]
+	[ "supreniri", "grimpi" ]
 );
 
 climbAction.transInput = function(s) {
@@ -1596,17 +1581,17 @@ climbAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar a qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         }
     }
 
@@ -1619,11 +1604,11 @@ climbAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar a qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( objDest.preClimb ) === "function" ) {
@@ -1642,8 +1627,7 @@ climbAction.doIt = function(s)
 
 // --------------------------------------------------------------- Shake
 var shakeAction = actions.crea( "shake",
-	[ "agita", "agitar", "agito",
-	  "sacude", "sacudir", "sacudo" ]
+	[ "skui", "svingi" ]
 );
 
 shakeAction.exe = function(s) {
@@ -1651,17 +1635,17 @@ shakeAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar a qu&eacute;.";
+		toret = "Kien?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
     else {
         if ( !objDest.isReachable() ) {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         } else {
-            toret = "Al final, decides no hacerlo.";
+            toret = "Lastmomente vi decidas ne fari tion.";
         }
     }
 
@@ -1674,11 +1658,11 @@ shakeAction.doIt = function(s)
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar s qu&eacute;.";
+		toret = "Kien?";
 	}
     else
 	if ( objDest == null ) {
-		toret = "No lo veo en derredor.";
+		toret = "Tio ne troviĝas ĉirkaŭe.";
 	}
 	else {
 		if ( typeof( objDest.preShake ) === "function" ) {
@@ -1697,7 +1681,7 @@ shakeAction.doIt = function(s)
 
 // ---------------------------------------------------------------- Show
 var showAction = actions.crea( "show",
-	[ "muestra", "mostrar", "muestro" ]
+	[ "montri" ]
 );
 
 showAction.exe = function(s) {
@@ -1706,31 +1690,31 @@ showAction.exe = function(s) {
     var pnjDest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( s.term2 == null ) {
-		toret = "Deber&iacuteas especificar a qui&eacute;n.";
+		toret = "al kiu vi montros tion?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else
 		if ( pnjDest == null ) {
-			toret = "No le veo en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( !( pnjDest instanceof Persona ) ) {
-				toret = "No tiene sentido.";
+				toret = "Kion vi celas fari ne havas sencon.";
 			}
 			else
 			if ( !objDest.isReachable()
 			  || !pnjDest.isReachable() )
 			{
-				toret = "Demasiado lejos.";
+				toret = "Ĝi ne estas atingebla.";
 			} else {
-				toret = "Al final, decides no hacerlo.";
+				toret = "Lastmomente vi decidas ne fari tion.";
 			}
 		}
 	}
@@ -1745,19 +1729,19 @@ showAction.doIt = function(s)
     var pnjDest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion vi volas montri?";
 	}
     else
 	if ( s.term2 == null ) {
-		toret = "Deber&iacuteas especificar a qui&eacute;n.";
+		toret = "Al kiu vi volas montri tion?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else
 		if ( pnjDest == null ) {
-			toret = "No le veo en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( typeof( objDest.preShow ) === "function" ) {
@@ -1777,8 +1761,7 @@ showAction.doIt = function(s)
 
 // ---------------------------------------------------------------- Give
 var giveAction = actions.crea( "give",
-	[ "da", "dale", "dar", "darle", "doy",
-	  "entrega", "entregale", "entregar", "entregarle", "entrego" ]
+	[ "doni", "transdoni" ]
 );
 
 giveAction.exe = function(s) {
@@ -1787,29 +1770,29 @@ giveAction.exe = function(s) {
     var pnjDest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( s.term2 == null ) {
-		toret = "Deber&iacuteas especificar a qui&eacute;n.";
+		toret = "al kiu?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else
 		if ( pnjDest == null ) {
-			toret = "No le veo en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( !( pnjDest instanceof Persona ) ) {
-				toret = "No tiene sentido.";
+				toret = "Kion vi celas fari ne havas sencon.";
 			}
 			else
 			if ( !objDest.isReachable()
 			  || !pnjDest.isReachable() )
 			{
-				toret = "Demasiado lejos.";
+				toret = "Ĝi ne estas atingebla.";
 			} else {
 				toret = actions.execute( "drop", objDest.id, pnjDest.id );
 			}
@@ -1826,19 +1809,19 @@ giveAction.doIt = function(s)
     var pnjDest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( s.term2 == null ) {
-		toret = "Deber&iacuteas especificar a qui&eacute;n.";
+		toret = "al kiu?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else
 		if ( pnjDest == null ) {
-			toret = "No le veo en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( typeof( objDest.preGive ) === "function" ) {
@@ -1858,7 +1841,7 @@ giveAction.doIt = function(s)
 
 // ---------------------------------------------------------------- Tie
 var tieAction = actions.crea( "tie",
-	[ "ata", "atale", "atar", "atarle", "ato" ]
+	[ "ligi", "botonumi" ]
 );
 
 tieAction.exe = function(s) {
@@ -1867,25 +1850,25 @@ tieAction.exe = function(s) {
     var obj2Dest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( s.term2 == null ) {
-		toret = "Deber&iacuteas especificar con qu&eacute;.";
+		toret = "al kio?";
 	}
     else {
 		if ( obj1Dest == null
           || obj2Dest == null )
         {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( !obj1Dest.isReachable()
 			  || !obj2Dest.isReachable() )
 			{
-				toret = "Demasiado lejos.";
+				toret = "Ĝi ne estas atingebla.";
 			} else {
-				toret = "Al final, decides no hacerlo.";
+				toret = "Lastmomente vi decidas ne fari tion.";
 			}
 		}
 	}
@@ -1932,7 +1915,7 @@ tieAction.doIt = function(s)
 
 // ---------------------------------------------------------------- Dig
 var digAction = actions.crea( "dig",
-	[ "cava", "cavar", "cavo", "excava", "excavar", "excavo" ]
+	[ "fosi", "kavigi" ]
 );
 
 digAction.exe = function(s) {
@@ -1941,25 +1924,25 @@ digAction.exe = function(s) {
     var obj2Dest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "kion?";
 	}
     else
 	if ( s.term2 == null ) {
-		toret = "Deber&iacuteas especificar con qu&eacute;.";
+		toret = "Per kio?";
 	}
     else {
 		if ( obj1Dest == null
           || obj2Dest == null )
         {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( !obj1Dest.isReachable()
 			  || !obj2Dest.isReachable() )
 			{
-				toret = "Demasiado lejos.";
+				toret = "Ĝi ne estas atingebla.";
 			} else {
-				toret = "Al final, decides no hacerlo.";
+				toret = "Lastmomente vi decidas ne fari tion.";
 			}
 		}
 	}
@@ -1974,19 +1957,19 @@ digAction.doIt = function(s)
     var obj2Dest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else
 	if ( s.term2 == null ) {
-		toret = "Deber&iacuteas especificar con qu&eacute;.";
+		toret = "Per kio?";
 	}
     else {
 		if ( obj1Dest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else
 		if ( obj2Dest == null ) {
-			toret = "No lo veo en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( typeof( obj1Dest.preDig ) === "function" ) {
@@ -2006,7 +1989,7 @@ digAction.doIt = function(s)
 
 // ----------------------------------------------------------------- Put
 var putAction = actions.crea( "put",
-	[ "pon", "poner", "pongo" ]
+	[ "meti", "loki", "surmeti" ]
 );
 
 putAction.transInput = function(s) {
@@ -2014,7 +1997,7 @@ putAction.transInput = function(s) {
     var wearAction = actions.getAction( "wear" );
 
     if ( this.match( s ) ) {
-        if ( s.prep === "sobre"
+        if ( s.prep === "sur"
           || s.prep === "en" )
         {
             s.verb = dropAction.verbs[ 0 ];
@@ -2028,8 +2011,7 @@ putAction.transInput = function(s) {
 
 // -------------------------------------------------------------- Insert
 var insertAction = actions.crea( "insert",
-	[ "mete", "meter", "meto", "inserta", "insertar", "inserto",
-      "introduce", "introducir", "introduzco" ]
+	[ "enmeti", "enigi" ]
 );
 
 insertAction.transInput = function(s) {
@@ -2042,7 +2024,7 @@ insertAction.transInput = function(s) {
         {
             s.verb = dropAction.verbs[ 0 ];
         } else {
-            toret = "Debes especificar en d&oacute;nde...";
+            toret = "En kion?...";
         }
     }
 
@@ -2051,7 +2033,7 @@ insertAction.transInput = function(s) {
 
 // ------------------------------------------------------------- Extract
 var extractAction = actions.crea( "extract",
-	[ "saca", "sacar", "saco", "extrae", "extraer", "extraigo" ]
+	[ "eligi", "eltiri", "elpreni" ]
 );
 
 extractAction.transInput = function(s) {
@@ -2064,7 +2046,7 @@ extractAction.transInput = function(s) {
         {
             s.verb = takeAction.verbs[ 0 ];
         } else {
-            toret = "Debes especificar de d&oacute;nde...";
+            toret = "El kie?...";
         }
     }
 
@@ -2073,8 +2055,7 @@ extractAction.transInput = function(s) {
 
 // ---------------------------------------------------------------- Wear
 var wearAction = actions.crea( "wear",
-	[ "viste", "vestir", "vestirse", "visto",
-      "ponte", "ponerse", "ponerte", "pongo"
+	[ "vesti", "surmeti"
     ]
 );
 
@@ -2083,25 +2064,25 @@ wearAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( !objDest.isReachable() ) {
-				toret = "Demasiado lejos.";
+				toret = "Ĝi ne estas atingebla.";
 			} else {
                 if ( objDest.isClothing() ) {
                     if ( !objDest.isWorn() ) {
                         objDest.setWorn();
-                        toret = "Hecho.";
+                        toret = "Farite.";
                     } else {
-                        toret = "Ya lo est&aacute;.";
+                        toret = "Vi jam portas tion.";
                     }
                 } else {
-                    toret = "No es algo para vestir.";
+                    toret = "Tio ne estas vestaĵo.";
                 }
 			}
 		}
@@ -2117,11 +2098,11 @@ wearAction.doIt = function(s)
     var player = ctrl.personas.getPlayer();
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
             if ( !player.has( objDest ) ) {
@@ -2149,8 +2130,7 @@ wearAction.doIt = function(s)
 
 // ----------------------------------------------------------- Disrobe
 var disrobeAction = actions.crea( "disrobe",
-	[ "desviste", "desvestir", "desvestirse", "desvisto",
-      "quitate", "quitarse", "quitate", "quito", "quita"
+	[ "demeti", "malvesti"
     ]
 );
 
@@ -2159,24 +2139,24 @@ disrobeAction.exe = function(s) {
     var objDest = s.obj1;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( !objDest.isReachable() ) {
-				toret = "Demasiado lejos.";
+				toret = "Ĝi ne estas atingebla.";
 			} else {
                 if ( objDest.owner === ctrl.personas.getPlayer()
                   && objDest.isClothing()
                   && objDest.isWorn() )
                 {
                     objDest.setWorn( false );
-                    toret = "Hecho.";
+                    toret = "Farite.";
                 } else {
-                    toret = "No lo llevas puesto.";
+                    toret = "Vi ne portas tion.";
                 }
 			}
 		}
@@ -2192,11 +2172,11 @@ disrobeAction.doIt = function(s)
     var pnjDest = s.obj2;
 
 	if ( s.term1 == null ) {
-		toret = "Deber&iacuteas especificar lo qu&eacute;.";
+		toret = "Kion?";
 	}
     else {
 		if ( objDest == null ) {
-			toret = "No veo eso en derredor.";
+			toret = "Tio ne troviĝas ĉirkaŭe.";
 		}
 		else {
 			if ( typeof( objDest.preDisrobe ) === "function" ) {
@@ -2216,13 +2196,13 @@ disrobeAction.doIt = function(s)
 
 // ---------------------------------------------------------------- Status
 var statusAction = actions.crea( "status",
-	[ "status", "stats", "estado", "turnos", "puntos", "puntuacion" ]
+	[ "vicoj", "statistikoj", "poentoj" ]
 );
 
 statusAction.exe = function(s) {
 	var player = ctrl.personas.getPlayer();
 	var turns = ctrl.getTurns();
-	var toret = "Has jugado " + turns;
+	var toret = "Vi interagis " + turns + " fojojn";
 
 	if ( turns == 1 ) {
 		toret += " turno.";
@@ -2231,7 +2211,7 @@ statusAction.exe = function(s) {
 	}
 
 	if ( ctrl.hasScore() ) {
-		toret += "<br> Tu puntuación es de: " + player.score;
+		toret += "<br> Via nombro de poentoj estas: " + player.score;
 	}
 
     return toret;
@@ -2256,11 +2236,11 @@ statusAction.doIt = function(s) {
 
 // ---------------------------------------------------------------- Wait
 var waitAction = actions.crea( "wait",
-	[ "espera", "z" ]
+	[ "atendi", "z" ]
 );
 
 waitAction.exe = function(s) {
-    return "Esperas un rato.";
+    return "Vi atentas iomete.";
 }
 
 waitAction.doIt = function(s) {
