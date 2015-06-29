@@ -122,7 +122,7 @@ attackAction.doIt = function(s) {
 
 // ----------------------------------------------------------- Start
 var startAction = actions.crea( "start",
-        [ "ŝalti", "startigi" "aktivigi" ]
+        [ "ŝalti", "startigi", "aktivigi" ]
 );
 
 startAction.exe = function(s) {
