@@ -103,7 +103,7 @@ var locPasillo = ctrl.lugares.creaLoc(
          En la ${okcidento, okcidento} estas la ${kuirejo, okcidento} kaj en la ${oriento, oriento} \
          la ${biblioteko, oriento}. La koridoro plu iras ĝis la \
          ${nordo, nordo}.<br>Videblaj elirejoj: \
-         ${nordo, nordo}, ${sudo, sudo}, ${oriento, oriento}, ${akcidento, okcidento}."
+         ${nordo, nordo}, ${sudo, sudo}, ${oriento, oriento}, ${okcidento, okcidento}."
 );
 locPasillo.pic = "res/pasillo.jpg";
 
