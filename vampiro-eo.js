@@ -31,12 +31,12 @@ ctrl.ponVersion( "20140831" );
 // *** Locs --
 
 var locBiblioteca = ctrl.lugares.creaLoc(
-	"Biblioteca",
-	[ "biblioteca" ],
-	"Te hallas en la biblioteca del castillo. Obviamente está \
-        llena de ${libros, ex libros} interesantes, pero \
-        desgraciadamente no tienes \
-        tiempo para leerlos.<br>Salidas visibles: ${oeste, oeste}."
+	"Biblioteko",
+	[ "biblioteko" ],
+	"Vi estas en la biblioteko de la kastelo. Ne estas necese diri \
+        ke ĝi estas plena je interesaj ${libroj, ekzameni la librojn}, sed \
+        malfeliĉe vi ne havas \
+        tempon por legi ilin.<br>Videblaj elirejoj: ${okcidento, okcidento}."
 );
 locBiblioteca.pic = "res/biblioteca.jpg";
 
@@ -64,18 +64,18 @@ locDormitorio.pic = "res/dormitorio.jpg";
 
 
 var locElFinal = ctrl.lugares.creaLoc(
-	"El Final",
-	[ "habitacion", "estancia" ],
-	"Estás en una habitación desnuda. Unicamente hay un \
-         ${altar, ex altar} en el centro. \
-         Encima del altar puedes ver un ${ataud, ex ataud}.\
-         <br>Salidas visibles: ${este, este}."
+	"La Fino",
+	[ "cambro" ],
+	"Vi estas en nuda ĉambro. Nur estas \
+         ${altaro, ekz altaron} en la mezo. \
+         Sur la altaro vi povas vidi ${ĉerkon, ekz ĉerkon}.\
+         <br>Videblaj elirejoj: ${oriento, oriento}."
 );
 locElFinal.pic = "res/final.jpg";
 
 var locEscaleras = ctrl.lugares.creaLoc(
-	"Ŝtuparoj",
-	[ "stuparoj" ],
+	"Ŝtuparo",
+	[ "stuparo" ],
 	"Vi troviĝas ĉe la fino de la koridoro. Antaŭ vi, vi vidas \
         unu ŝtuparon kiu ${supreniras, supreniri} kaj aliaj kiu ${malsupreniras, malsupreniri}. \
         ${Okcidente, okcidento} estas la ${dormoĉambro, okcidento} kaj ${oriente, oriente} \
@@ -86,13 +86,13 @@ var locEscaleras = ctrl.lugares.creaLoc(
 locEscaleras.pic = "res/escaleras.jpg";
 
 var locEscalerasSuperiores = ctrl.lugares.creaLoc(
-	"Escaleras superiores",
-	[ "escaleras", "rellano" ],
-	"Estás en el piso superior del castillo. Aquí hace aún más \
-        frío que ${abajo, abajo}. Detrás de tí están las \
-        escaleras que ${bajan, baja} y \
-        hacia el ${oeste, oeste} está la ${habitación, oeste} del \
-        vampiro.<br>Salidas visibles: ${oeste, oeste}, ${abajo, abajo}."
+	"Supra ŝtuparo",
+	[ "stuparo" ],
+	"Vi estas en la supra etaĝo de la kastelo. Ĉi tie estas eĉ pli \
+        malvarme ol ${malsupre, malsupro}. Malantaŭ vi troviĝas la \
+        ŝtuparo kiu ${malsupreniras, malsupreniri} kaj \
+        ${okcidente, okcidento} estas la ${ĉambro, okcidento} de la \
+        vampiro.<br>Videblaj elirejoj: ${okcidento, okcidento}, ${malsupro, malsupro}."
 );
 locEscalerasSuperiores.pic = "res/escaleras_superiores.jpg";
 
@@ -109,29 +109,29 @@ locPasillo.pic = "res/pasillo.jpg";
 
 
 var locSalaDeEstar = ctrl.lugares.creaLoc(
-	"Sala de estar",
-	[ "sala", "habitacion", "estancia" ],
-	"Es la sala más acogedora de todo el castillo. \
-        En la ${chimenea, ex chimenea} \
-        los últimos ${restos de algún fuego, ex fuego} \
-        chisporrotean alegremente. \
-        Hay una ${mesa, ex mesa} grande con una ${silla, ex silla} al \
-        lado. De la pared cuelgan \
-        bastantes ${trofeos, ex trofeos} de caza y \
-        ${adornos, ex adornos} varios.<br>Salidas visibles: \
-        ${oeste, oeste}.\n"
+	"Vivoĉambro",
+	[ "vivocambro", "cambro", "vivcambro", "sidcambro" ],
+	"Tiu ĉi estas la plej invita ĉambro de la tuta kastelo. \
+        En la ${kameno, ekz la kamenon} \
+        la lastaj ${restaĵoj el fajro, ekz la fajron} \
+        sparkas kamarade kaj komplice. \
+        Estas granda ${tablo, ekz la tablon} kaj apude staras ${seĝo, ekz la seĝon} \
+        Sur la muro pendas \
+        multaj ĉasaj ${trofeoj, ekz la trofeojn} kaj diversaj \
+        ${ornamaĵoj, ekz la orgamaĵojn}.<br>Videblaj elirejoj: \
+        ${okcidento, okcidento}.\n"
 );
 locSalaDeEstar.pic = "res/sala_estar.jpg";
 
 var locSotano = ctrl.lugares.creaLoc(
-	"Sótano",
-	[ "sotano" ],
-	"En este pequeño sótano hace mucho calor, sientes una \
-        sensación de recogimiento. Está todo muy sucio. Hay un \
-        ${barril, ex barril} \
-        aquí, también hay unas ${escaleras, ex escaleras} que \
-        ${suben, arriba}.<br>Salidas visibles: \
-        ${arriba, arriba}.\n"
+	"Kelo",
+	[ "kelo" ],
+	"En tiu ĉi malgranda kelo estas tre malvarme, Sento de \
+        izoleco kaptas vin. Ĉio estas malpura. Estas \
+        ${barelo, ekz la barelon} \
+        ĉi tie, ankaŭ ${ŝtuparo, ekz la ŝtuparon} kiu \
+        ${supreniras, supreniri}.<br>Videblaj elirejoj: \
+        ${supro, supro}.\n"
 );
 locSotano.pic = "res/sotano.jpg";
 
@@ -207,18 +207,18 @@ locVestibulo.ponSalidaBi( "nordo", locPasillo );
 // *** Objs --
 
 var objAdornos = ctrl.creaObj(
-	"adornos",
-	[ "adorno", "adornos" ],
-	"Adornan.",
+	"ornamaĵoj",
+	[ "ornamajoj" ],
+	"Ili ornamas.",
 	locSalaDeEstar,
 	Ent.Escenario
 );
 
 var objAltar = ctrl.creaObj(
-	"altar",
-	[ "altar" ],
-	"Es un altar de dura piedra. Encima de éste está el \
-         ${ataud, ex ataud}.",
+	"altaro",
+	[ "altaro" ],
+	"Ĝi estas altaro el malmola ŝtono. Sur ĝi estas la \
+         ${ĉerko, ekz la ĉerkon}.",
 	locElFinal,
 	Ent.Escenario
 );
@@ -278,16 +278,16 @@ objArmario.preOpen = function() {
 }
 
 var objArmarioRopero = ctrl.creaObj(
-	"armario ropero",
-	[ "armario", "ropero" ],
-	"El armario ropero está vacío.",
+	"vestoŝranko",
+	[ "vestosranko", "vestejo" ],
+	"La vestoŝranko estas malplena.",
 	locDormitorio,
 	Ent.Escenario
 );
 
 var objAtaud = ctrl.creaObj(
-	"ataud",
-	[ "ataud", "sarcofago" ],
+	"ĉerko",
+	[ "cerko", "sarkofago" ],
 	"Una sencilla caja de pino.",
 	locElFinal,
 	Ent.Escenario
@@ -299,37 +299,37 @@ objAtaud.preOpen = function() {
         // La estaca
         if ( !ctrl.estaPresente( objTrozoDeMadera ) )
         {
-                toret += "Necesitas un estaca que clavar en el \
-                          corazón del vampiro.\n";
+                toret += "Vi bezonas palison kiun enbati en la \
+                          koron de la vampiro.\n";
         } else {
                 if ( !objTrozoDeMadera.afilado ) {
-                        toret += "Podrías utilizar el madero, como \
-                                  estaca, pero no está afilado.\n";
+                        toret += "Vi povus uzi la lignopecon kiel \
+                                  palison sed ĝi ne estas pintigita.\n";
                 }
         }
 
         // El martillo
         if ( !ctrl.estaPresente( objMartillo ) ) {
-                toret += "Falta algo con lo que golpear la estaca.\n";
+                toret += "Mankas io per kio bati la palison.\n";
         }
 
         // El crucifijo
         if ( !ctrl.estaPresente( objCrucifijoPlateado ) ) {
-                toret += "Es básica una protección religiosa.\n";
+                toret += "Nepras religia protektilo.\n";
         } else {
                 if ( !objCrucifijoPlateado.estaPuesto() ) {
-                        toret += "El crucifijo debería colgar de tu \
-                                  cuello.\n";
+                        toret += "La krucifikso devus pendi sur \
+                                  via kolo.\n";
                 }
         }
 
         // La ristra de ajos
         if ( !ctrl.estaPresente( objRistraDeAjos ) ) {
-                toret += "Es básica una protección pagana.\n";
+                toret += "Nepras pagana protektilo.\n";
         } else {
                 if ( !objRistraDeAjos.estaPuesto() ) {
-                        toret += "La protección del ajo solamente se \
-                                  logra si cuelga de tu cuello.\n";
+                        toret += "La protekto de la ajlo nur efikas \
+                                  se ĝi pendas sur via kolo.\n";
                 }
         }
 
@@ -339,19 +339,19 @@ objAtaud.preOpen = function() {
 				dvFrame.style.display = "none";
                 ctrl.terminaJuego(
                         "\
-                                Abres el ataúd, y, protegido por \
-                                los ajos y el crucifijo, comienzas \
-                                tu tarea. La cara de horror del \ vampiro cuando le clavas la estaca \
-                                solo es comparable al rostro \
-                                lleno de paz que puedes observar \
-                                unos cuantos martillazos después. \
-                                La reducción del cuerpo a cenizas \
-                                te confirma que tu misión está ya \
-                                cumplida.",
+                                Vi malfermas la ĉerkon, kaj, sub la protekto de \
+                                la ajloj kaj la krucifikso, komencas vian \
+                                taskon. La terurplena vizaĝo de la \ vampiro dum vi en lin enbatas la palison \
+                                nur estas komparebla kun la pacoplena vizaĝo \
+                                kiun vi vidas \
+                                kelkajn martelfrapojn poste. \
+                                La reduktiĝo je cindroj \
+                                konfirmas ke via misio estas jam \
+                                plenumita.",
                         "res/portada_vampiro.jpg"
                 );
         } else {
-                toret = "Revisas que tengas todo lo necesario...<br>"
+                toret = "Kontrolu ke vi havas ĉion necesan......<br>"
                         + toret;
         }
 
@@ -359,10 +359,10 @@ objAtaud.preOpen = function() {
 }
 
 var objBarril = ctrl.creaObj(
-	"barril",
-	[ "barril", "tapa", "hendidura", "muesca" ],
-	"Se trata de un barril con tapa, que presenta una pequeña  \
-        hendidura.",
+	"barelo",
+	[ "barelo", "kovrilo", "fendo", "entranco" ],
+	"Temas pri barelo kun kovrilo, kiu havas malgrandan \
+        fendon.",
 	locSotano,
 	Ent.Escenario
 );
@@ -373,17 +373,17 @@ objBarril.preExamine = function() {
         var toret = objBarril.desc;
 
         if ( objBarril.estaAbierto() ) {
-                toret += " Está vacío.";
+                toret += " Ĝi estas malplena.";
         } else {
-                toret += " No puedes ver lo que hay dentro del barril \
-                     porque está cerrado.";
+                toret += " Vi ne povas vidi kio estas ene de la barelo \
+                     ĉar ĝi estas fermita.";
         }
 
         return toret;
 }
 
 objBarril.preOpen = function() {
-        var toret = "No puedes abrirlo con eso.";
+        var toret = "Vi ne povas malfermi ĝin per tio.";
         var s = parser.sentencia;
 
         if ( s.obj2 === null ) {
@@ -391,21 +391,21 @@ objBarril.preOpen = function() {
         }
 
         if ( !ctrl.estaPresente( s.obj2 ) ) {
-                toret = "No puedes abrirlo así.";
+                toret = "Vi ne povas malfermi ĝin tiel.";
         }
         else
         if ( s.obj2 === objPalanca ) {
-                toret = "Ya estaba abierto.";
+                toret = "Ĝi jam estas malfermita.";
 
                 if ( !objBarril.estaAbierto() ) {
-                        toret = "Lo has abierto con la palanca, haciendo \
-                                 fuerza en uno de los bordes de \
-                                 la tapa, en donde la hendidura.";
+                        toret = "Vi malfermis ĝin per la stango, aplikante \
+                                 forton sur unu el la bordoj de \
+                                 la kovrilo, kie troviĝis la fendo.";
 
                         objBarril.ponAbierto();
                         objMartillo.mueveA( objBarril.owner );
-                        toret += " Dentro había un \
-                                   ${martillo, coge martillo}.";
+                        toret += " Ene estis \
+                                   ${martelo, preni la martelon}.";
                 }
         }
 
@@ -429,18 +429,18 @@ var objCama = ctrl.creaObj(
 );
 
 var objChimenea = ctrl.creaObj(
-	"chimenea",
-	[ "chimenea" ],
-	"Es una chimenea hecha de ladrillos y muy elegante. \
-         En ella chisporrotean los ${restos de un fuego, ex fuego}.",
+	"kameno",
+	[ "kameno" ],
+	"Ĝi estas kameno farita el brikoj kaj ne tre eleganta. \
+         En ĝi sparkas la ${restaĵoj el fajro, ekz fajron}.",
 	locSalaDeEstar,
 	Ent.Escenario
 );
 
 var objCrucifijoPlateado = ctrl.creaObj(
-	"crucifijo plateado",
-	[ "crucifijo" ],
-	"Es un pequeño crucifijo plateado. Es uno de los cuatro elementos que nos servirán para derrotar al vampiro.",
+	"arĝentokolora  plateado",
+	[ "krucifikso" ],
+	"Ĝi estas arĝentokolora krucifikso. Ĝi estas unu el la kvar elementoj kiuj utilos al vi por venki la vampiron.",
 	locBiblioteca,
 	Ent.Portable
 );
@@ -448,9 +448,9 @@ var objCrucifijoPlateado = ctrl.creaObj(
 objCrucifijoPlateado.ponPrenda();
 
 var objCuchillo = ctrl.creaObj(
-	"cuchillo",
-	[ "cuchillo" ],
-	"Un simple cuchillo de cocina. Pincha.",
+	"tranĉilo",
+	[ "trancilo" ],
+	"Ĝi estas simpla kuireja tranĉilo. Ĝi pikas.",
 	locCocina,
 	Ent.Portable
 );
@@ -472,11 +472,11 @@ var objHorno = ctrl.creaObj(
 );
 
 var objLibros = ctrl.creaObj(
-	"libros",
-	[ "libro", "libros", "volumenes", "volumen",
-          "estantes", "estante", "estanterias", "estanteria",
-          "librería" ],
-	"Montones de libros, pero no tengo tiempo para leer ahora.",
+	"libroj",
+	[ "libro", "libroj", "volumo", "volumoj",
+          "breto", "librosrankoj", "librosranko",
+          "librosranko" ],
+	"Amasoj da libroj, sed nun mi ne havas tempon por legi.",
 	locBiblioteca,
 	Ent.Escenario
 );
@@ -490,33 +490,33 @@ var objLlavecita = ctrl.creaObj(
 );
 
 var objMartillo = ctrl.creaObj(
-	"martillo",
-	[ "martillo", "maza" ],
-	"Un martillo grande. Es uno de los elementos que me permitirán acabar con el vampiro.",
+	"martelo",
+	[ "martelo" ],
+	"Granda martelo. Ĝi estas unu el la aĵoj kiuj utilos al vi por venki la vampiron.",
 	ctrl.lugares.limbo,
 	Ent.Portable
 );
 
 var objMesa = ctrl.creaObj(
-	"mesa",
-	[ "mesa" ],
-	"Una mesa de caoba, bastante grande.",
+	"tablo",
+	[ "tablo" ],
+	"Mahagona tablo, ĝi estas tre granda.",
 	locSalaDeEstar,
 	Ent.Escenario
 );
 
 var objPalanca = ctrl.creaObj(
-	"palanca",
-	[ "palanca" ],
-	"Es una palanca de acero toledano. Sirve para forzar cosas.",
+	"stango",
+	[ "stango" ],
+	"Ĝi estas stango el ŝtalo. Ĝi utilas por rompe malfermi aĵojn.",
 	locBiblioteca,
 	Ent.Portable
 );
 
 var objRestos = ctrl.creaObj(
-	"restos",
-	[ "restos", "fuego" ],
-	"Chisporrotean algunas brasas entre madera aún por quemar.",
+	"restaĵoj",
+	[ "restajoj", "fajro" ],
+	"Kelkaj braĝoj sparkas inter lignaĵoj ankoraŭ bruliĝontaj.",
 	locSalaDeEstar,
 	Ent.Escenario
 );
@@ -525,8 +525,8 @@ objRestos.preExamine = function() {
         var toret = objRestos.desc;
 
         if ( objTrozoDeMadera.owner === ctrl.lugares.limbo ) {
-                toret += " Entre los restos del fuego encuentras un \
-                           ${trozo de madera, coge palo}.";
+                toret += " Inter la restaĵoj el la fajro vi malkovras \
+                           ${lignopecon, preni la lignopecon}.";
                 objTrozoDeMadera.moveTo( locSalaDeEstar );
         }
 
@@ -564,8 +564,8 @@ objSabanas.preExamine = function() {
 }
 
 var objSilla = ctrl.creaObj(
-	"silla",
-	[ "silla" ],
+	"seĝo",
+	[ "sego" ],
 	"Una cómoda silla.",
 	locSalaDeEstar,
 	Ent.Escenario
@@ -581,17 +581,17 @@ var objTrajeBarato = ctrl.creaObj(
 objTrajeBarato.ponPrenda();
 
 var objTrofeos = ctrl.creaObj(
-	"trofeos",
-	[ "trofeos", "trofeo" ],
-	"Insignificantes trofeos.",
+	"trofeoj",
+	[ "trofeoj", "trofeo" ],
+	"Sensignifaj trofeoj.",
 	locSalaDeEstar,
 	Ent.Escenario
 );
 
 var objTrozoDeMadera = ctrl.creaObj(
-	"trozo de madera",
-	[ "trozo", "madera", "madero", "estaca", "palo" ],
-	"Un trozo de madera, rectangular y alargado.",
+	"lignopeco",
+	[ "peco", "ligno", "lignajo", "stango" ],
+	"Longa ortangula lignopeco.",
 	ctrl.lugares.limbo,
 	Ent.Portable
 );
@@ -600,7 +600,7 @@ objTrozoDeMadera.preExamine = function() {
         var toret = objTrozoDeMadera.desc;
 
         if ( objTrozoDeMadera.afilado ) {
-                toret += " Ahora parece una estaca.";
+                toret += " Nun ĝi ŝajnas paliso.";
         }
 
         return toret;
@@ -609,7 +609,7 @@ objTrozoDeMadera.preExamine = function() {
 objTrozoDeMadera.afilado = false;
 
 objTrozoDeMadera.preSharpen = function() {
-        var toret = "No puedes afilarlo con eso.";
+        var toret = "Vi ne povas pintigi ĝin per tio.";
         var s = parser.sentencia;
 
         if ( s.obj2 === null
@@ -619,14 +619,14 @@ objTrozoDeMadera.preSharpen = function() {
         }
 
         if ( !ctrl.estaPresente( s.obj2 ) ) {
-                toret = "No puedes afilarlo así.";
+                toret = "Vi ne povas pintigi ĝin tiel.";
         }
         else
         if ( s.obj2 === objCuchillo ) {
-                toret = "Ya estaba afilado.";
+                toret = "Ĝi jam estas pintigita.";
 
                 if ( !objTrozoDeMadera.afilado ) {
-                        toret = "Has afilado el madero con el cuchillo.";
+                        toret = "Vi pintigis la lignopecon per la tranĉilo.";
                         objTrozoDeMadera.afilado = true;
                 }
         }
@@ -636,33 +636,33 @@ objTrozoDeMadera.preSharpen = function() {
 
 // --- Jugador ---------------------------------------------------------
 var jugador = ctrl.personas.creaPersona( "reXXe",
-                    [ "rexxe", "cazador", "cazavampiros" ],
-                    "reXXe, un experimentado caza vampiros.",
+                    [ "rexxe", "casisto", "vampircasisto" ],
+                    "reXXe, sperta vampirĉasisto.",
                     locVestibulo
 );
 
-var murcielagos = ctrl.personas.creaPersona( "murcielagos",
-                    [ "murcielago" ],
-                    "Varios murcielagos, no parecen saber muy bien qué pensar de ti.",
+var murcielagos = ctrl.personas.creaPersona( "vespertoj",
+                    [ "vesperto" ],
+                    "Pluraj vespertoj, ŝajne ili ne scias kion pensi pri vi.",
                     ctrl.lugares.limbo
 );
 murcielagos.ponAlcanzable( false );
 
 murcielagos.preTalk = function() {
-        return "¿Pero para qué? ...no molestes a los pobres murciélagos...";
+        return "Sed, kiucele? ...ne ĝenu la kompatindajn vespertojn...";
 }
 
 locPasillo.preSing = function() {
-        return "Buscas a algun incauto para tu perpretación...<br>"
-                + acciones.ejecuta( "talk", "murcielagos" );
+        return "Vi serĉas iun senprudentulon por la plenumo de via krimo...<br>"
+                + acciones.ejecuta( "talk", "vespertoj" );
 }
 
 murcielagos.daemon = function() {
         if ( ctrl.getTurns() % 7 == 0 ) {
                 if ( ctrl.lugares.getCurrentLoc() == murcielagos.owner ) {
-                        ctrl.print( "Unos murciélagos se alborotan un tanto, chillando entre ellos..." );
+                        ctrl.print( "Vespertoj bruadas kriante unuj la aliajn..." );
                 } else {
-                        ctrl.print( "Ahogados, débiles chillidos provienen de alguna parte..." );
+                        ctrl.print( "Sufokitaj, malfortaj krioj venas el ie..." );
                 }
         }
 }
@@ -671,9 +671,9 @@ ctrl.ponAlarma( 3, function() {
         murcielagos.mueveA( locPasillo );
 
         if ( ctrl.lugares.devLocActual() == murcielagos.owner ) {
-                ctrl.print( "Despertados por tu presencia, los murcielagos chillan como comenzando a desperezarse..." );
+                ctrl.print( "Vekiĝintaj pro via ĉeesto, la verpertoj krias kiel komencante streĉi siajn membrojn..." );
         } else {
-                ctrl.print( "Unos lejanos chillidos llegan a ti de forma apagada..." );
+                ctrl.print( "Vi aŭdas forajn malfortajn kriojn..." );
         }
 
         ctrl.ponDaemon( "bats", murcielagos.daemon );
@@ -681,22 +681,21 @@ ctrl.ponAlarma( 3, function() {
 
 // --- Acciones --------------------------------------------------------
 var sharpenAction = acciones.crea( "sharpen",
-        [ "afila", "afilar", "afilo",
-          "pule", "pulir", "pulo"]
+        [ "pintigi"]
 );
 
 sharpenAction.exe = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 === null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion vi volas pintigi?.";
     }
     else
     if ( s.obj1 !== null ) {
         if ( s.obj1.isReachable() ) {
-            toret = "La violencia no es la soluci&oacute;n.";
+            toret = "Perforto ne estas la solvo.";
         } else {
-            toret = "Demasiado lejos.";
+            toret = "Ĝi ne estas atingebla.";
         }
     }
 
@@ -704,10 +703,10 @@ sharpenAction.exe = function(s) {
 };
 
 sharpenAction.doIt = function(s) {
-    var toret = "No veo de eso en derredor.";
+    var toret = "Tio ne troviĝas ĉirkaŭe.";
 
     if ( s.term1 === null ) {
-        toret = "Deber&iacute;as especificar qu&eacute;.";
+        toret = "Kion vi volas pintigi?";
     }
     else
     if ( s.obj1 != null ) {
