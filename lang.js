@@ -1,12 +1,11 @@
-var compas = [ "norte", "sur", "este", "oeste", "arriba", "abajo" ];
-var brevCompas = [ "n", "s", "e", "o", "ar", "ab" ];
-
 var lang = ( function() {
 
 	var accentedVowels = "áéíóúäëïöüâêîôûàèìòùÁÉÍÓÚÄËÏÖÜÂÊÎÔÛÀÈÌÒÙ";
 	var regularVowels = "aeiou";
 	var specialChars = "ñÑçÇ";
 	var regularChars = "nNcC";
+    var compas = [ "norte", "sur", "este", "oeste", "arriba", "abajo" ];
+    var brevCompas = [ "n", "s", "e", "o", "ar", "ab" ];
 
     function canonical ( w )
     {
@@ -100,6 +99,22 @@ var lang = ( function() {
         return;
     }
 
+    // Mensajes
+
+    var tit = "Ficción interactiva";
+    var intro = "¡Comienza la aventura!";
+    var venkis = "Has ganado.";
+    var eblasvidi = "Aquí puedes ver:";
+    var portas = "Llevas contigo: ";
+    var vidas = "También puedes ver: ";
+    var akuzativo = "";
+    var portasnenion = "No llevas nada contigo.";
+    var nepovas = "No puedes hacer eso.";
+    var neniookazis = "No ha pasado nada.";
+    var nesencas = "No tiene sentido";
+    var kaj = " y ";
+    var surmetita = "puesto";
+
     return {
         "IgnoredWords": IgnoredWords,
         "PalabrasIgnoradas": IgnoredWords,
@@ -110,6 +125,21 @@ var lang = ( function() {
         "regularVowels": regularVowels,
         "specialChars": specialChars,
         "regularChars": regularChars,
+        "compas": compas,
+        "brevCompas": brevCompas,
+        "tit": tit,
+        "intro": intro,
+        "venkis": venkis,
+        "eblasvidi": eblasvidi,
+        "portas": portas,
+        "vidas": vidas,
+        "akuzativo": akuzativo,
+        "portasnenion": portasnenion,
+        "nepovas": nepovas,
+        "neniookazis": neniookazis,
+        "nesencas": nesencas,
+        "kaj": kaj,
+        "surmetita": surmetita,
     };
 
 }() );

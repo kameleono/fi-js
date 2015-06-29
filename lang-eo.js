@@ -1,12 +1,11 @@
-var compas = [ "nordo", "sudo", "oriento", "okcidento", "supro", "malsupro" ];
-var brevCompas = [ "n", "s", "oro", "oko", "sro", "msro" ];
-
 var lang = ( function() {
 
 	var accentedVowels = "";
 	var regularVowels = "aeiou";
 	var specialChars = "ĉĝĥĵŝŭ";
 	var regularChars = "cghjsu";
+    var compas = [ "nordo", "sudo", "oriento", "okcidento", "supro", "malsupro" ];
+    var brevCompas = [ "n", "s", "oro", "oko", "sro", "msro" ];
 
     function canonical ( w )
     {
@@ -100,6 +99,22 @@ var lang = ( function() {
         return;
     }
 
+    // Mensajes
+
+    var tit = "Interaga fikcio";
+    var intro = "Komenciĝas la aventuro!";
+    var venkis = "Vi venkis.";
+    var eblasvidi = "Ĉi tie videblas: ";
+    var portas = "Vi kunportas sekvajn aĵojn: ";
+    var vidas = "Vi ankaŭ povas vidi: ";
+    var akuzativo = "n";
+    var portasnenion = "Vi kunportas nenion";
+    var nepovas = "Vi ne povas fari tion";
+    var neniookazis = "Nenio okazis.";
+    var nesencas = "Tio ne havas sencon";
+    var kaj = " kaj ";
+    var surmetita = "surmetita";
+
     return {
         "IgnoredWords": IgnoredWords,
         "PalabrasIgnoradas": IgnoredWords,
@@ -110,6 +125,21 @@ var lang = ( function() {
         "regularVowels": regularVowels,
         "specialChars": specialChars,
         "regularChars": regularChars,
+        "compas": compas,
+        "brevCompas": brevCompas,
+        "tit": tit,
+        "intro": intro,
+        "venkis": venkis,
+        "eblasvidi": eblasvidi,
+        "portas": portas,
+        "vidas": vidas,
+        "akuzativo": akuzativo,
+        "portasnenion": portasnenion,
+        "nepovas": nepovas,
+        "neniookazis": neniookazis,
+        "nesencas": nesencas,
+        "kaj": kaj,
+        "surmetita": surmetita,
     };
 
 }() );

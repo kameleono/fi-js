@@ -169,8 +169,8 @@ var Loc = function(n, i, s, d) {
     this.objs = [];
     this.personas = [];
 
-    this.compas = compas;
-    this.brevCompas = brevCompas;
+    this.compas = lang.compas;
+    this.brevCompas = lang.brevCompas;
     this.exits = [ null, null, null, null, null, null ];
     this.salidas = this.exits;
 
@@ -413,8 +413,8 @@ var Persona = function(n, i, l, d) {
 };
 
 var ctrl = ( function() {
-    var tit = "Ficción interactiva";
-    var intro = "¡Comienza la aventura!";
+    var tit = lang.tit;
+    var intro = lang.intro;
     var pic = null;
     var aut = "";
     var version = "";
@@ -721,7 +721,7 @@ var ctrl = ( function() {
         }
         else
         if ( arguments.length < 1 ) {
-            msg = "Has ganado.";
+            msg = lang.venkis;
         }
 
         // Eliminate input possibilities and extra stuff
@@ -943,7 +943,7 @@ var ctrl = ( function() {
 
             if ( loc.personas.length > 1 ) {
 					var personasDesc = ctrl.listPersonas( loc );
-                    pDesc.innerHTML += "<p>Ĉi tie vi povas vidi: "
+                    pDesc.innerHTML += "<p>" + lang.eblasvidi
 							+ ctrl.cnvtTextLinksToHtml( personasDesc );
             }
 
@@ -1433,9 +1433,9 @@ var ctrl = ( function() {
 
         if ( loc == player ) {
             isInventory = true;
-            toret += "Llevas contigo: ";
+            toret += lang.portas;
         } else {
-            toret += "<br>Vi ankaŭ povas vidi: ";
+            toret += "<br>" + lang.vidas;
         }
 
         // Discard scenery objects
@@ -1462,17 +1462,17 @@ var ctrl = ( function() {
                     toret += "}";
 
                     if ( obj.isWorn() ) {
-                        toret += " (${puesto,";
-                        toret += disrobeAction.verbs[ 0 ] + ' ' + obj.id;
+                        toret += " (${" + lang.surmetita +",";
+                        toret += disrobeAction.verbs[ 0 ] + ' ' + obj.id + lang.akuzativo;
                         toret += "})";
                     }
                 } else {
-                    toret += takeAction.verbs[ 0 ] + ' ' + obj.id;
+                    toret += takeAction.verbs[ 0 ] + ' ' + obj.id + lang.akuzativo;
                     toret += "}";
                 }
 
                 if ( i == ( portableObjs.length - 2 ) ) {
-					toret += " y ";
+					toret += lang.kaj;
 				}
 				else
 				if ( i < ( portableObjs.length - 2 ) ) {
@@ -1485,7 +1485,7 @@ var ctrl = ( function() {
 
         if ( totalObjsListed < 1 ) {
             if ( isInventory ) {
-                toret = "<br>No llevas nada contigo.";
+                toret = "<br>" + lang.portasnenion;
             } else {
                 toret = "";
             }
@@ -1746,7 +1746,7 @@ var parser = ( function() {
 
         if ( toret == "" ) {
             identifyObjects();
-            toret = "No puedes hacer eso.";
+            toret = lang.nepovas;
 
             // Execute action
             if ( sentence.act != null ) {
@@ -1810,7 +1810,7 @@ var actions = ( function() {
          */
         this.exe = function(s)
         {
-            return "No ha pasado nada.";
+            return lang.neniookazis;
         }
 
         /**
@@ -1872,7 +1872,7 @@ var actions = ( function() {
 
     function execute(actionId, noun1, noun2)
     {
-        var toret = "No tiene sentido";
+        var toret = lang.nesencas;
 
         if ( arguments.length === 0 ) {
             actionId = null;
