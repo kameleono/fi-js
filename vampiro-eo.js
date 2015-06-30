@@ -36,7 +36,7 @@ var locBiblioteca = ctrl.lugares.creaLoc(
 	"Vi estas en la biblioteko de la kastelo. Ne estas necese diri \
         ke ĝi estas plena je interesaj ${libroj, ekzameni la librojn}, sed \
         malfeliĉe vi ne havas \
-        tempon por legi ilin.<br>Videblaj elirejoj: ${okcidento, okcidento}."
+        tempon por legi ilin.<br>Eblas eliri: ${okcidenten, okcidenten}."
 );
 locBiblioteca.pic = "res/biblioteca.jpg";
 
@@ -44,11 +44,11 @@ var locCocina = ctrl.lugares.creaLoc(
 	"Kuirejo",
 	[ "kuirejo", "ĉambro" ],
 	"Vi estas en la kuirejo de la kastelo. Ĝi estas plena je \
-        ${kaseroloj, ekz la kaserolojn} kaj ${aĵoj, ekz la aĵojn} \
-        por kuiri. Estas ${forno, ekz la fornon}, \
-        ${lavujo, ekz la lavujon} kaj malgranda ${ŝranko, ekz la ŝrankon}.\
-        <br>Videblaj elirejoj: \
-        ${oriento, oriento}."
+        ${kaseroloj, ekzameni la kaserolojn} kaj ${aĵoj, ekzameni la aĵojn} \
+        por kuiri. Estas ${forno, ekzameni la fornon}, \
+        ${lavujo, ekzameni la lavujon} kaj malgranda ${ŝranko, ekzameni la ŝrankon}.\
+        <br>Eblas eliri: \
+        ${orienten, orienten}."
 );
 locCocina.pic = "res/cocina.jpg";
 
@@ -56,9 +56,9 @@ var locDormitorio = ctrl.lugares.creaLoc(
 	"Dormoĉambro",
 	[ "dormocambro" ],
 	"Vi estas en dormoĉambro nek granda nek malgranda. \
-        Ĝi estas tre aŭstera. Nur estas ${lito, ekz la liton} \
-        kaj ${ŝranko, ekz la ŝrankon}.\
-        <br>Videblaj elirejoj: ${oriento, oriento}."
+        Ĝi estas tre aŭstera. Nur estas ${lito, ekzameni la liton} \
+        kaj ${ŝranko, ekzameni la ŝrankon}.\
+        <br>Eblas eliri: ${orienten, orienten}."
 );
 locDormitorio.pic = "res/dormitorio.jpg";
 
@@ -67,9 +67,9 @@ var locElFinal = ctrl.lugares.creaLoc(
 	"La Fino",
 	[ "cambro" ],
 	"Vi estas en nuda ĉambro. Nur estas \
-         ${altaro, ekz altaron} en la mezo. \
-         Sur la altaro vi povas vidi ${ĉerkon, ekz ĉerkon}.\
-         <br>Videblaj elirejoj: ${oriento, oriento}."
+         ${altaro, ekzameni altaron} en la mezo. \
+         Sur la altaro vi povas vidi ${ĉerkon, ekzameni ĉerkon}.\
+         <br>Eblas eliri: ${orienten, orienten}."
 );
 locElFinal.pic = "res/final.jpg";
 
@@ -78,10 +78,10 @@ var locEscaleras = ctrl.lugares.creaLoc(
 	[ "stuparo" ],
 	"Vi troviĝas ĉe la fino de la koridoro. Antaŭ vi, vi vidas \
         unu ŝtuparon kiu ${supreniras, supreniri} kaj aliaj kiu ${malsupreniras, malsupreniri}. \
-        ${Okcidente, okcidento} estas la ${dormoĉambro, okcidento} kaj ${oriente, oriente} \
-        la ${vivĉambro, oriento}.<br>Videblaj elirejoj: \
-        ${sudo, sudo}, ${oriento, oriento}, ${okcidento, okcidento}, \
-        ${supro, supro}, ${malsupro, malsupro}."
+        ${Okcidente, okcidenten} estas la ${dormoĉambro, okcidenten} kaj ${oriente, orienten} \
+        la ${vivĉambro, orienten}.<br>Eblas eliri: \
+        ${suden, suden}, ${orienten, orienten}, ${okcidenten, okcidenten}, \
+        ${supren, supren}, ${malsupren, malsupren}."
 );
 locEscaleras.pic = "res/escaleras.jpg";
 
@@ -89,10 +89,10 @@ var locEscalerasSuperiores = ctrl.lugares.creaLoc(
 	"Supra ŝtuparo",
 	[ "stuparo" ],
 	"Vi estas en la supra etaĝo de la kastelo. Ĉi tie estas eĉ pli \
-        malvarme ol ${malsupre, malsupro}. Malantaŭ vi troviĝas la \
+        malvarme ol ${malsupre, malsupren}. Malantaŭ vi troviĝas la \
         ŝtuparo kiu ${malsupreniras, malsupreniri} kaj \
-        ${okcidente, okcidento} estas la ${ĉambro, okcidento} de la \
-        vampiro.<br>Videblaj elirejoj: ${okcidento, okcidento}, ${malsupro, malsupro}."
+        ${okcidente, okcidenten} estas la ${ĉambro, okcidenten} de la \
+        vampiro.<br>Eblas eliri: ${okcidenten, okcidenten}, ${malsupren, malsupren}."
 );
 locEscalerasSuperiores.pic = "res/escaleras_superiores.jpg";
 
@@ -100,10 +100,10 @@ var locPasillo = ctrl.lugares.creaLoc(
 	"Koridoro",
 	[ "koridoro" ],
 	"Vi troviĝas meze de la ĉefa koridoro de tiu ĉi etaĝo. \
-         En la ${okcidento, okcidento} estas la ${kuirejo, okcidento} kaj en la ${oriento, oriento} \
-         la ${biblioteko, oriento}. La koridoro plu iras ĝis la \
-         ${nordo, nordo}.<br>Videblaj elirejoj: \
-         ${nordo, nordo}, ${sudo, sudo}, ${oriento, oriento}, ${okcidento, okcidento}."
+         En la ${okcidento, okcidenten} estas la ${kuirejo, okcidenten} kaj en la ${oriento, orienten} \
+         la ${biblioteko, orienten}. La koridoro plu iras \
+         ${norden, norden}.<br>Eblas eliri: \
+         ${norden, norden}, ${suden, suden}, ${orienten, orienten}, ${okcidenten, okcidenten}."
 );
 locPasillo.pic = "res/pasillo.jpg";
 
@@ -112,14 +112,14 @@ var locSalaDeEstar = ctrl.lugares.creaLoc(
 	"Vivoĉambro",
 	[ "vivocambro", "cambro", "vivcambro", "sidcambro" ],
 	"Tiu ĉi estas la plej invita ĉambro de la tuta kastelo. \
-        En la ${kameno, ekz la kamenon} \
-        la lastaj ${restaĵoj el fajro, ekz la fajron} \
+        En la ${kameno, ekzameni la kamenon} \
+        la lastaj ${restaĵoj el fajro, ekzameni la fajron} \
         sparkas kamarade kaj komplice. \
-        Estas granda ${tablo, ekz la tablon} kaj apude staras ${seĝo, ekz la seĝon} \
+        Estas granda ${tablo, ekzameni la tablon} kaj apude staras ${seĝo, ekzameni la seĝon} \
         Sur la muro pendas \
-        multaj ĉasaj ${trofeoj, ekz la trofeojn} kaj diversaj \
-        ${ornamaĵoj, ekz la orgamaĵojn}.<br>Videblaj elirejoj: \
-        ${okcidento, okcidento}.\n"
+        multaj ĉasaj ${trofeoj, ekzameni la trofeojn} kaj diversaj \
+        ${ornamaĵoj, ekzameni la orgamaĵojn}.<br>Eblas eliri: \
+        ${okcidenten, okcidenten}.\n"
 );
 locSalaDeEstar.pic = "res/sala_estar.jpg";
 
@@ -128,10 +128,10 @@ var locSotano = ctrl.lugares.creaLoc(
 	[ "kelo" ],
 	"En tiu ĉi malgranda kelo estas tre malvarme, Sento de \
         izoleco kaptas vin. Ĉio estas malpura. Estas \
-        ${barelo, ekz la barelon} \
-        ĉi tie, ankaŭ ${ŝtuparo, ekz la ŝtuparon} kiu \
-        ${supreniras, supreniri}.<br>Videblaj elirejoj: \
-        ${supro, supro}.\n"
+        ${barelo, ekzameni la barelon} \
+        ĉi tie, ankaŭ ${ŝtuparo, ekzameni la ŝtuparon} kiu \
+        ${supreniras, supreniri}.<br>Eblas eliri: \
+        ${supren, supren}.\n"
 );
 locSotano.pic = "res/sotano.jpg";
 
@@ -139,10 +139,10 @@ var locVestibulo = ctrl.lugares.creaLoc(
 	"Vestiblo",
 	[ "antaŭĉambro" ],
 	"Vi estas en la vestiblo de la kastelo. Estas tre humide \
-        kaj malvarme. Vi estas en koridoro kiu etendiĝas ĝis la \
-        ${nordo, nordo}. En la ${sudo, sudo} staras la \
-        ${enirpordo, ekzameni la pordon} al la kastelo.<br>Videblaj \
-        elirejoj: ${nordo, nordo}.\n"
+        kaj malvarme. Vi estas en koridoro kiu etendiĝas \
+        ${norden, norden}. En la ${sudo, suden} staras la \
+        ${enirpordo, ekzameni la pordon} al la kastelo.<br>Eblas \
+        eliri: ${norden, norden}.\n"
 );
 locVestibulo.pic = "res/vestibulo.jpg";
 
@@ -151,7 +151,7 @@ locVestibulo.preGo = function() {
         var s = parser.sentencia;
         var toret = "";
 
-        if ( s.term1 !== "sur" ) {
+        if ( s.term1 !== "sudo" ) {
                 toret = acciones.devAccion( "go" ).exe( s );
         } else {
                 toret = objPuertaEntrada.desc;
@@ -218,7 +218,7 @@ var objAltar = ctrl.creaObj(
 	"altaro",
 	[ "altaro" ],
 	"Ĝi estas altaro el malmola ŝtono. Sur ĝi estas la \
-         ${ĉerko, ekz la ĉerkon}.",
+         ${ĉerko, ekzameni la ĉerkon}.",
 	locElFinal,
 	Ent.Escenario
 );
@@ -423,7 +423,7 @@ var objCacerolas = ctrl.creaObj(
 var objCama = ctrl.creaObj(
 	"lito",
 	[ "lito" ],
-	"Ĝi estas kovrita per ${litotukoj, ekz la litotukojn}.",
+	"Ĝi estas kovrita per ${litotukoj, ekzameni la litotukojn}.",
 	locDormitorio,
 	Ent.Escenario
 );
@@ -432,13 +432,13 @@ var objChimenea = ctrl.creaObj(
 	"kameno",
 	[ "kameno" ],
 	"Ĝi estas kameno farita el brikoj kaj ne tre eleganta. \
-         En ĝi sparkas la ${restaĵoj el fajro, ekz fajron}.",
+         En ĝi sparkas la ${restaĵoj el fajro, ekzameni fajron}.",
 	locSalaDeEstar,
 	Ent.Escenario
 );
 
 var objCrucifijoPlateado = ctrl.creaObj(
-	"arĝentokolora  plateado",
+	"arĝentokolora krucifikso",
 	[ "krucifikso" ],
 	"Ĝi estas arĝentokolora krucifikso. Ĝi estas unu el la kvar elementoj kiuj utilos al vi por venki la vampiron.",
 	locBiblioteca,

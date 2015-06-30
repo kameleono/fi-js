@@ -58,6 +58,7 @@ var lang = ( function() {
             var w = canonical( ws[ i ] );
 
             var rekta_objekto = /^[a-z].+(n)$/
+            var en_vorto = /^[a-z].+(en)$/
             var verbo_i = /^[a-z].+(i)$/
             var verbo_as = /^[a-z].+(as)$/
             var nerekta_objekto = /^[a-z].+(o)$/
@@ -78,6 +79,15 @@ var lang = ( function() {
                 sentence.term1 = ovorto;
             }
 
+            if(en_vorto.test(w)){
+                var ovorto = w.substring(0, (w.length - 2)) + "o";
+                sentence.term1 = ovorto;
+                if ( sentence.verb === null ) {
+                    sentence.verb = "iri";
+                }
+            }
+
+
             // Set noun2
             if(nerekta_objekto.test(w)){
                 if ( sentence.prep != null ) {
@@ -94,6 +104,13 @@ var lang = ( function() {
                 sentence.prep = w;
             }
 
+            // Mallongigoj kaj aliaj ne gramatike korektaj komandoj
+
+            if ( w === "inv" || w === "inventaro" || w === "i" ) {
+                sentence.verb = w;
+            }
+
+
         }
 
         return;
@@ -105,8 +122,8 @@ var lang = ( function() {
     var intro = "Komenciĝas la aventuro!";
     var venkis = "Vi venkis.";
     var eblasvidi = "Ĉi tie videblas: ";
-    var portas = "Vi kunportas sekvajn aĵojn: ";
-    var vidas = "Vi ankaŭ povas vidi: ";
+    var portas = "Vi kunportas la sekvajn aĵojn: ";
+    var vidas = "Ankaŭ videblas: ";
     var akuzativo = "n";
     var portasnenion = "Vi kunportas nenion";
     var nepovas = "Vi ne povas fari tion";
