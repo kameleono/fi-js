@@ -288,7 +288,7 @@ var objArmarioRopero = ctrl.creaObj(
 var objAtaud = ctrl.creaObj(
 	"ĉerko",
 	[ "cerko", "sarkofago" ],
-	"Una sencilla caja de pino.",
+	"Simpla skatolo farita el pino.",
 	locElFinal,
 	Ent.Escenario
 );
@@ -340,7 +340,7 @@ objAtaud.preOpen = function() {
                 ctrl.terminaJuego(
                         "\
                                 Vi malfermas la ĉerkon, kaj, sub la protekto de \
-                                la ajloj kaj la krucifikso, komencas vian \
+                                la ajloŝnuro kaj la krucifikso, komencas vian \
                                 taskon. La terurplena vizaĝo de la \ vampiro dum vi en lin enbatas la palison \
                                 nur estas komparebla kun la pacoplena vizaĝo \
                                 kiun vi vidas \
@@ -590,7 +590,7 @@ var objTrofeos = ctrl.creaObj(
 
 var objTrozoDeMadera = ctrl.creaObj(
 	"lignopeco",
-	[ "peco", "ligno", "lignajo", "stango" ],
+	[ "peco", "ligno", "lignajo" ],
 	"Longa ortangula lignopeco.",
 	ctrl.lugares.limbo,
 	Ent.Portable
